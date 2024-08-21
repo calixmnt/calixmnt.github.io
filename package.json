@@ -1,7 +1,10 @@
 {
-  "name": "",
+  "name": "calixmnt.github.io",
   "type": "module",
   "version": "0.0.1",
+  "browserslist" : [
+    "defaults"
+  ],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,8 +13,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.14.3",
     "@astrojs/check": "^0.9.3",
+    "astro": "^4.14.3",
+    "astro-icon": "^1.1.1",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "open-props": "^1.7.5",
+    "postcss": "^8.4.41",
+    "postcss-jit-props": "^1.0.14"
   }
 }

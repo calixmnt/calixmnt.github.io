@@ -1,0 +1,33 @@
+---
+import siteConfig from '@/site-config'
+import '@/styles/global.css'
+import '@/styles/dot.css'
+
+
+interface Props {
+  title?: string
+  description?: string
+  image?: { src: string; alt?: string }
+  pageType?: 'website' | 'article'
+}
+
+const {
+  description = '',
+  pageType = 'website',
+} = Astro.props
+
+const title = [Astro.props.title, siteConfig.title].filter(Boolean).join(' | ')
+
+---
+
+<!-- High Priority Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>{title}</title>
+<meta name="generator" content={Astro.generator} />
+
+<!-- Low Priority Global Metadata -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- Page Metadata -->
+<meta name="description" content={description} />
