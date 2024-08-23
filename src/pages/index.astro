@@ -1,12 +1,17 @@
 ---
+import Social from "@/components/Social.astro";
 import BaseLayout from "../layouts/Base.astro";
 ---
 
 <BaseLayout title="Calix Monnet.">
-  <article class="prose">
-    <p>
-      Je me prenomme Calix je code souvent je rap suvent je fais assez de choses
-      que je trouve interessantes je vous laisse découvrir par vous même.
+  <section class="intoduction" aria-label="introduction">
+    <h1 class="first-heading">Calix Monnet</h1>
+    <p class="introduction__details">
+      Développeur web, curieux, passionné, fondateur de <span class="u-underline u-italic u-accent u_bold">lavibe Agency.</span>
     </p>
-  </article>
+    <Social />
+  </section>
+  <section class="notes">
+    <h2 class="second-heading">Mes Notes</h2>
+  </section>
 </BaseLayout>

@@ -4,7 +4,8 @@
     --bg-color : #fff;
     --text-main : #555;
     --text-dark : #000;
-    --primary-color : #2b8b8f;
+    --primary-color : rgb(34, 34, 34);
+    --color-accent : rgba(170, 238, 218, 0.933);
 
     --transition : all .2s;
 }

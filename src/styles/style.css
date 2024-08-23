@@ -1,8 +1,29 @@
+/* Utilitaires */
+
+.u-underline {
+    text-decoration: underline;
+}
+
+.u-italic {
+    font-style: italic;
+}
+
+.u-accent {
+    color: var(--color-accent);
+    letter-spacing: .1.5rem;
+}
+
+.u_bold {
+    font-weight: 600;
+}
+
+
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 2rem 3rem;
+  justify-content: space-around;
+  padding: 3rem;
+  margin-bottom: 5rem;
 }
 
 .header__logo {
@@ -11,6 +32,7 @@
 }
 
 .nav {
+    margin-left: -3rem;
 }
 
 .nav__list {
@@ -29,6 +51,7 @@
 .nav__item {
     cursor: pointer;
     position: relative;
+    text-transform: capitalize;
 }
 
 .nav__item::before {
@@ -38,15 +61,16 @@
     left: .8rem;
     right: 0;
     background-color: var(--primary-color);
+    opacity: .4;
     height: .2rem;
-    width: 25%;
     transition: var(--transition);
 }
 
 .nav__item:focus::before,
 .nav__item:hover::before {
     height: .3rem;
-    width: 75%;
+    width: calc(100% - .8rem);
+    opacity: 1;
 }
 
 .social {
@@ -66,4 +90,86 @@
 }
 
 .social__logo {
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.25rem;
+    color: rgba(34, 34, 34, 1);
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-top-width: .1rem;
+    border-style: solid;
+    border-color: rgba(34, 34, 34, .4);
+    margin-top: 20rem;
+    padding: 1.5rem;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer__logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.footer__links {
+
+}
+
+.footer__link {
+    letter-spacing: .3rem;
+    text-decoration: underline;
+    margin: 0 .5rem;
+    position: relative;
+}
+
+.footer__link:not(:last-child):after {
+    position: absolute;
+    content: '/';
+    right: -1.3rem;
+    top: .3rem;
+    bottom: -0.4rem;
+    font-size: 2rem;
+}
+
+.copyright {
+    line-height: 2rem;
+}
+
+.copyright__text {
+
+}
+
+.current-year {
+
+}
+
+.introduction {
+}
+
+.introduction__details {
+    margin-bottom: 1.8rem;
+}
+
+.first-heading {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 3.4rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+
+.notes {
+    margin-top: 5rem;
+}
+
+.second-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+
 }

@@ -1,36 +1,17 @@
 ---
 import { Icon } from "astro-icon/components";
+import Social from "../Social.astro";
 ---
 
 <header class="header">
   <a href="/" class="header__logo">Calixmnt</a>
   <nav class="nav">
     <ul class="nav__list">
-      <li class="nav__item"><a href="#" class="nav__link">Notes</a></li>
-      <li class="nav__item"><a href="#" class="nav__link">Projets</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">mes projets</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">mes notes</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">stacks</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">me contacter</a></li>
     </ul>
   </nav>
-  <div class="social">
-    <ul class="social__list">
-
-        <li class="social__item">
-          <a href="https://github.com/calixmnt" target="_blank" class="social__link">
-            <Icon class=`social__logo` name="feather:github" />
-          </a>
-        </li>
-
-        <li class="social__item">
-          <a href="https://www.upwork.com/freelancers/~01af36df4b705ad420" target="_blank" class="social__link">
-            <Icon class=`social__logo` name="upwork" />
-          </a>
-        </li>
-
-        <li class="social__item">
-          <a href="mailto:calixmonnet@gmail.com" target="_blank" class="social__link">
-            <Icon class=`social__logo` name="feather:mail" />
-          </a>
-        </li>
-
-    </ul>
-  </div>
+  <Social />
 </header>
