@@ -2,7 +2,7 @@
   "name": "calixmnt.github.io",
   "type": "module",
   "version": "0.0.1",
-  "browserslist" : [
+  "browserslist": [
     "defaults"
   ],
   "scripts": {
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
+    "@iconify-json/feather": "^1.1.9",
     "astro": "^4.14.3",
     "astro-icon": "^1.1.1",
     "typescript": "^5.5.4"

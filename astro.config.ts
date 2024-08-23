@@ -3,5 +3,10 @@ import icon from "astro-icon";
 
 export default defineConfig({
   site: 'http://localhost:4321/',
-  integrations: [icon()],
+  integrations: [icon({
+    iconDir : "src/icons",
+    include : {
+      feather : ['github', 'mail'],
+    }
+  })],
 });
