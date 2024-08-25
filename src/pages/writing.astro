@@ -1,0 +1,8 @@
+---
+import { getCollection } from "astro:content";
+import PostLayout from "../layouts/Post.astro";
+
+const allPosts = await getCollection("post");
+---
+
+<PostLayout title="Calix Monnet." />

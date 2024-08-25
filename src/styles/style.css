@@ -30,15 +30,15 @@
 }
 
 .theme-button {
-    position: absolute;
-    right: 5rem;
-    bottom: 5rem;
+  position: absolute;
+  right: 5rem;
+  bottom: 5rem;
 }
 
 .header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 3rem;
   margin-bottom: 5rem;
 }
@@ -98,28 +98,25 @@
 }
 
 .social__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: .5rem;
-  padding: .4rem .6rem;
-  font-size: 2rem;
-  transition: all .3s;
-
-}
-
-.social__item:hover {
-  color: var(--text-body);
-  background-color: var(--selection);
 }
 
 .social__link {
-  display: inline-block;
-  line-height: 1rem;
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  
+  display: block;
   display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: .4rem;
+  column-gap: 0.4rem;
+  transition: all 0.3s;
+}
+
+.social__link:hover,
+.social__link:focus {
+  color: var(--text-body);
+  background-color: var(--selection);
 }
 
 .social__logo {
@@ -153,7 +150,7 @@
 }
 
 .footer__link {
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.2rem;
   text-decoration: underline;
   margin: 0 0.5rem;
   position: relative;
@@ -161,7 +158,7 @@
 
 .footer__link:not(:last-child):after {
   position: absolute;
-  content: "/";
+  content: "|";
   right: -1.3rem;
   top: 0.3rem;
   bottom: -0.4rem;
@@ -186,6 +183,7 @@
 }
 
 .first-heading {
+  color: var(--heading);
   font-weight: 600;
   text-transform: uppercase;
   font-size: 3.4rem;
@@ -193,12 +191,55 @@
   margin-bottom: 1.5rem;
 }
 
-.notes {
+.menu {
   margin-top: 5rem;
 }
 
+.menu__item {
+  display: flex;
+  align-items: center;
+  column-gap: .9rem;
+  margin: 1.5rem 0 1.5rem 3rem;
+}
+
+.menu__link {
+  position: relative;
+  display: inline-block;
+  color: var(--text-body);
+  font-weight: 700;
+  padding: 0.2rem 0.4rem;
+  white-space: nowrap;
+}
+
+.menu__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: .2rem;
+  background-color: var(--border);
+  transition: all .2s;
+  border-radius: .6rem;
+
+}
+
+.menu__link:hover {
+}
+
+.menu__link:hover::after {
+  height: 100%;
+}
+
+.menu__description {
+  margin-top: .5rem;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+}
+
 .second-heading {
-  font-size: 2rem;
+  color: var(--heading);
+  font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 6px;
 }

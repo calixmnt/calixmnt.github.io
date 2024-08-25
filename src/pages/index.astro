@@ -1,6 +1,7 @@
 ---
 import Social from "@/components/Social.astro";
 import BaseLayout from "../layouts/Base.astro";
+import Menu from "@/components/Menu.astro";
 ---
 
 <BaseLayout title="Calix Monnet.">
@@ -8,11 +9,12 @@ import BaseLayout from "../layouts/Base.astro";
     <h1 class="first-heading">Calix Monnet</h1>
     <p class="introduction__details">
       Développeur web, curieux, passionné, amoureux de <b>design simple</b> et épuré.
-      <br />Mes passions sont la <b>musique</b> et le <b>developpement</b>.
+      <br />Mes passions sont la <b>musique</b> et le <b>développement</b>.
     </p>
     <Social />
   </section>
-  <section class="notes">
-    <h2 class="second-heading">Mes Notes</h2>
+  <section class="menu">
+    <h2 class="second-heading">Le Menu</h2>
+    <Menu/>
   </section>
 </BaseLayout>
