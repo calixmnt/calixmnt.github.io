@@ -2,11 +2,13 @@ import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 
 export default defineConfig({
-  site: 'http://localhost:4321/',
-  integrations: [icon({
-    iconDir : "src/icons",
-    include : {
-      feather : ['github', 'mail'],
-    }
-  })],
+  site: "http://localhost:4321/",
+  integrations: [
+    icon({
+      iconDir: "src/icons",
+      include: {
+        feather: ["github", "mail"],
+      },
+    }),
+  ],
 });

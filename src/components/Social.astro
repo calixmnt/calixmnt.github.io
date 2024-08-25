@@ -1,28 +1,50 @@
 ---
 import { Icon } from "astro-icon/components";
 
+const socialLinks: Array<{
+  name: string;
+  friendlyName: string;
+  link: string;
+}> = [
+  {
+    name: "feather:github",
+    friendlyName: "Github",
+    link: "https://github.com/calixmnt",
+  },
+  {
+    name: "upwork",
+    friendlyName: "Upwork",
+    link: "https://www.upwork.com/freelancers/~01af36df4b705ad420",
+  },
+  {
+    name: "feather:mail",
+    friendlyName: "Email",
+    link: "mailto:calixmonnet@gmail.com",
+  },
+];
 ---
 
 <div class="social">
-    <ul class="social__list">
-
+  <ul class="social__list">
+    {
+      socialLinks.map(({ name, friendlyName, link }) => (
         <li class="social__item">
-          <a href="https://github.com/calixmnt" target="_blank" class="social__link">
-            <Icon class=`social__logo` name="feather:github" />
+          <a
+            href={link}
+            target="_blank"
+            class="social__link"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="social__logo"
+              name={name}
+              aria-hidden="true"
+              focusable="false"
+            />
+            <span class="sr-only">{friendlyName}</span>
           </a>
         </li>
-
-        <li class="social__item">
-          <a href="https://www.upwork.com/freelancers/~01af36df4b705ad420" target="_blank" class="social__link">
-            <Icon class=`social__logo` name="upwork" />
-          </a>
-        </li>
-
-        <li class="social__item">
-          <a href="mailto:calixmonnet@gmail.com" target="_blank" class="social__link">
-            <Icon class=`social__logo` name="feather:mail" />
-          </a>
-        </li>
-
-    </ul>
-  </div>
+      ))
+    }
+  </ul>
+</div>

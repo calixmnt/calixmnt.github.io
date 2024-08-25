@@ -1,22 +1,39 @@
 /* Utilitaires */
 
 .u-underline {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .u-italic {
-    font-style: italic;
+  font-style: italic;
 }
 
 .u-accent {
-    color: var(--color-accent);
-    letter-spacing: .1.5rem;
+  color: hsl(var(--theme-accent));
+  letter-spacing: 0.1.5rem;
 }
 
-.u_bold {
-    font-weight: 600;
+.u-bold {
+  font-weight: 600;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.theme-button {
+    position: absolute;
+    right: 5rem;
+    bottom: 5rem;
+}
 
 .header {
   display: flex;
@@ -27,63 +44,62 @@
 }
 
 .header__logo {
-    font-size: 1.8rem;
-    font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .nav {
-    margin-left: -3rem;
+  margin-left: -3rem;
 }
 
 .nav__list {
-    display: flex;
-    column-gap: 3rem;
+  display: flex;
+  column-gap: 3rem;
 }
 
-
 .nav__link {
-    padding: 0 .8rem;
-    transition: var(--transition);
-    height: 2rem;
-    display: block;
+  padding: 0 0.8rem;
+  transition: var(--transition);
+  height: 2rem;
+  display: block;
 }
 
 .nav__item {
-    cursor: pointer;
-    position: relative;
-    text-transform: capitalize;
+  cursor: pointer;
+  position: relative;
+  text-transform: capitalize;
 }
 
 .nav__item::before {
-    content: '';
-    position: absolute;
-    bottom: -0.09rem;
-    left: .8rem;
-    right: 0;
-    background-color: var(--primary-color);
-    opacity: .4;
-    height: .2rem;
-    transition: var(--transition);
+  content: "";
+  position: absolute;
+  bottom: -0.09rem;
+  left: 0.8rem;
+  right: 0;
+  background-color: hsl(var(--theme-accent));
+  opacity: 0.4;
+  height: 0.2rem;
+  transition: var(--transition);
 }
 
 .nav__item:focus::before,
 .nav__item:hover::before {
-    height: .3rem;
-    width: calc(100% - .8rem);
-    opacity: 1;
+  height: 0.3rem;
+  width: calc(100% - 0.8rem);
+  opacity: 1;
 }
 
 .social {
 }
 
 .social__list {
-    display: flex;
-    column-gap: 2rem;
+  display: flex;
+  column-gap: 2rem;
 }
 
 .social__item {
-    font-size: 2rem;
-    color: var(--primary-color);
+  font-size: 2rem;
+  color: hsl(var(--theme-accent));
 }
 
 .social__link {
@@ -93,83 +109,79 @@
 }
 
 .footer {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1.5rem;
-    font-size: 1.2rem;
-    line-height: 1.25rem;
-    color: rgba(34, 34, 34, 1);
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 0;
-    border-top-width: .1rem;
-    border-style: solid;
-    border-color: rgba(34, 34, 34, .4);
-    margin-top: 20rem;
-    padding: 1.5rem;
-    position: fixed;
-    bottom: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.25rem;
+  color: hsl(var(--theme-text));
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-top-width: 0.1rem;
+  border-style: solid;
+  border-color: hsl(var(--theme-accent));
+  margin-top: 20rem;
+  padding: 1.5rem;
+  position: fixed;
+  bottom: 0;
 }
 
 .footer__logo {
-    font-size: 1.8rem;
-    font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .footer__links {
-
 }
 
 .footer__link {
-    letter-spacing: .3rem;
-    text-decoration: underline;
-    margin: 0 .5rem;
-    position: relative;
+  letter-spacing: 0.3rem;
+  text-decoration: underline;
+  margin: 0 0.5rem;
+  position: relative;
 }
 
 .footer__link:not(:last-child):after {
-    position: absolute;
-    content: '/';
-    right: -1.3rem;
-    top: .3rem;
-    bottom: -0.4rem;
-    font-size: 2rem;
+  position: absolute;
+  content: "/";
+  right: -1.3rem;
+  top: 0.3rem;
+  bottom: -0.4rem;
+  font-size: 2rem;
 }
 
 .copyright {
-    line-height: 2rem;
+  line-height: 2rem;
 }
 
 .copyright__text {
-
 }
 
 .current-year {
-
 }
 
 .introduction {
 }
 
 .introduction__details {
-    margin-bottom: 1.8rem;
+  margin-bottom: 1.8rem;
 }
 
 .first-heading {
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 3.4rem;
-    line-height: 1;
-    margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 3.4rem;
+  line-height: 1;
+  margin-bottom: 1.5rem;
 }
 
 .notes {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 
 .second-heading {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 6px;
-
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 6px;
 }
