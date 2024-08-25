@@ -1,16 +1,34 @@
 ---
-import Social from "../Social.astro";
+import SocialIcon from "../SocialIcon.astro";
+
+
+const socialLinks: Array<{
+  name: string;
+  friendlyName: string;
+  link: string;
+  text?: string;
+}> = [
+  {
+    name: "feather:at-sign",
+    friendlyName: "Email",
+    link: "mailto:calixmonnet@gmail.com",
+  },
+  {
+    name: "hugeicons:notion-01",
+    friendlyName: "Notion",
+    link: "www.notion.com",
+  },
+];
 ---
 
+
+
 <header class="header">
-  <a href="/" class="header__logo">Calixmnt</a>
-  <nav class="nav">
-    <ul class="nav__list">
-        <li class="nav__item"><a href="#" class="nav__link">mes projets</a></li>
-        <li class="nav__item"><a href="#" class="nav__link">mes notes</a></li>
-        <li class="nav__item"><a href="#" class="nav__link">stacks</a></li>
-        <li class="nav__item"><a href="#" class="nav__link">me contacter</a></li>
+  <div class="social">
+    <ul class="social__list">
+      {socialLinks.map(iconProps => (
+        <SocialIcon {...iconProps} />
+      ))}
     </ul>
-  </nav>
-  <Social />
+  </div>
 </header>

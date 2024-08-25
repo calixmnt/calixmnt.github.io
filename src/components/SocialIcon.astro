@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { name, friendlyName, link, text } = Astro.props;
+---
+
+<li class="social__item">
+  <a
+    href={link}
+    target="_blank"
+    class="social__link"
+    rel="noopener noreferrer"
+  >
+    <Icon
+      width={20}
+      height={20}
+      class="social__logo"
+      name={name}
+      aria-hidden="true"
+      focusable="false"
+    />
+    <span class="sr-only">{friendlyName}</span>
+    {text && <span class="social__text">{text}</span>}
+  </a>
+</li>

@@ -1,10 +1,12 @@
 ---
-import { Icon } from "astro-icon/components";
+import SocialIcon from './SocialIcon.astro';
+
 
 const socialLinks: Array<{
   name: string;
   friendlyName: string;
   link: string;
+  text?: string;
 }> = [
   {
     name: "feather:github",
@@ -21,30 +23,19 @@ const socialLinks: Array<{
     friendlyName: "Email",
     link: "mailto:calixmonnet@gmail.com",
   },
+  {
+    name: "hugeicons:notion-02",
+    friendlyName: "Notion",
+    text: "mon Cv",
+    link: "www.notion.com",
+  },
 ];
 ---
 
 <div class="social">
   <ul class="social__list">
-    {
-      socialLinks.map(({ name, friendlyName, link }) => (
-        <li class="social__item">
-          <a
-            href={link}
-            target="_blank"
-            class="social__link"
-            rel="noopener noreferrer"
-          >
-            <Icon
-              class="social__logo"
-              name={name}
-              aria-hidden="true"
-              focusable="false"
-            />
-            <span class="sr-only">{friendlyName}</span>
-          </a>
-        </li>
-      ))
-    }
+    {socialLinks.map(iconProps => (
+      <SocialIcon {...iconProps} />
+    ))}
   </ul>
 </div>

@@ -2,14 +2,6 @@
 
 :root {
   color-scheme: light;
-  --theme-bg: 0deg 0% 98%;
-  --theme-link: 172deg 18% 41%;
-  --theme-text: 203deg 11% 15%;
-  --theme-accent: 351deg 66% 48%;
-  --theme-accent-2: 0deg 0% 7%;
-  --theme-quote: 351deg 66% 48%;
-  --transition: all 0.2s;
-
   --gray-50: #ffffff;
   --gray-75: #fdfdfd;
   --gray-100: #f8f8f8;
@@ -22,37 +14,22 @@
   --gray-800: #222222;
   --gray-900: #000000;
   --gray-950: #000000;
+
   --selection: hsla(0, 0%, 0%, 0.045);
   --border: hsla(0, 0%, 0%, 0.09);
+
   --page-background: var(--gray-50);
+
   --heading: var(--gray-900);
   --text-body: var(--gray-800);
   --text-second: var(--gray-700);
   --text-disabled: var(--gray-500);
 
-  --shiki-color-text: var(--gray-800);
-  --shiki-color-background: var(--gray-100);
-  --shiki-token-constant: #171717;
-  --shiki-token-string: #6f6f6f;
-  --shiki-token-comment: #8f8f8f;
-  --shiki-token-keyword: #858585;
-  --shiki-token-parameter: #171717;
-  --shiki-token-function: #171717;
-  --shiki-token-string-expression: #6f6f6f;
-  --shiki-token-punctuation: #8f8f8f;
-  --shiki-token-link: #171717;
+  --content-width: 60rem;
 }
 
 :root.dark {
   color-scheme: dark;
-  --theme-bg: 210deg 6% 12%;
-  --theme-link: 330deg 49% 67%;
-  --theme-text: 220deg 3% 79%;
-  --theme-accent: 159deg 64% 45%;
-  --theme-accent-2: 0deg 0% 93%;
-  --theme-quote: 102deg 100% 86%;
-  --transition: all 0.2s;
-
   --gray-50: #000;
   --gray-75: #141414;
   --gray-100: #1d1d1d;
@@ -65,23 +42,17 @@
   --gray-800: #ebebeb;
   --gray-900: #fff;
   --gray-950: #fff;
+
   --selection: hsla(0, 0%, 100%, 0.077);
   --border: hsla(0, 0%, 100%, 0.1);
+
   --page-background: var(--gray-75);
+
   --heading: var(--gray-900);
   --text-body: var(--gray-800);
   --text-second: var(--gray-600);
   --text-disabled: var(--gray-500);
-
-  --shiki-token-constant: #ededed;
-  --shiki-token-string: #a0a0a0;
-  --shiki-token-comment: #707070;
-  --shiki-token-keyword: #858585;
-  --shiki-token-parameter: #ededed;
-  --shiki-token-function: #ededed;
-  --shiki-token-string-expression: #a0a0a0;
-  --shiki-token-punctuation: #707070;
-  --shiki-token-link: #ededed;
+  --content-width: 60rem;
 }
 
 *,
@@ -93,10 +64,6 @@
   border-color: var(--gray-200);
   margin: 0;
   padding: 0;
-}
-
-::selection {
-  background-color: var(--selection);
 }
 
 input {
@@ -123,11 +90,18 @@ html {
   font-size: 62.5%;
 }
 
+b, strong {
+  color: var(--text-body);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
 body {
-  font-family: "Ubuntu", sans-serif;
-  font-size: 1.4rem;
-  color: hsl(var(--theme-text));
-  background-color: hsl(var(--theme-bg));
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--text-second);
+  line-height: 2.4rem;
+  background-color: var(--page-background);
   width: 100%;
   min-height: 100vh;
 }
@@ -143,7 +117,7 @@ html.dark #moon-svg {
 }
 
 main {
-  max-width: 50rem;
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 0 1.5rem;
   position: relative;

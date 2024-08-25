@@ -2,6 +2,7 @@
 import siteConfig from '@/site-config'
 import '@/styles/global.css'
 import '@/styles/style.css'
+import BaseFonts from './BaseFonts.astro'
 
 interface Props {
   title?: string
@@ -12,7 +13,7 @@ interface Props {
 
 const {
   description = '',
-  pageType = 'website',
+  // pageType = 'website',
 } = Astro.props
 
 const title = [Astro.props.title, siteConfig.title].filter(Boolean).join(' | ')
@@ -33,3 +34,6 @@ const title = [Astro.props.title, siteConfig.title].filter(Boolean).join(' | ')
 
 <!-- Page Metadata -->
 <meta name="description" content={description} />
+
+<!-- Fonts -->
+<BaseFonts />
