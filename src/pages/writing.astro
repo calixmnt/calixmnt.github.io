@@ -1,8 +1,40 @@
 ---
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import PostLayout from "../layouts/Post.astro";
 
-const allPosts = await getCollection("post");
+const allPosts : CollectionEntry<'post'>[] = await getCollection('post');
+console.log(allPosts)
+
+const postByYear = allPosts.reduce((acc, post) => {
+    const year = post.data.publishDate.getFullYear();
+
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+
+  acc[year].push(post);
+
+  return acc;
+
+
+}, {} as Record<number, CollectionEntry<'post'>[]>);
+
+const postByYearArray = Object.entries(postByYear).map(([year, posts]) => ({
+  year: parseInt(year, 10),
+  posts,
+}));
 ---
 
-<PostLayout title="Calix Monnet." />
+<PostLayout title="Title">
+    {postByYearArray.map(({ year, posts }) => (
+        <div>
+            <h2>{year}</h2>
+            <ul>
+                {posts.map(post => (
+                    <li>{post.data.title}</li>
+                ))}
+            </ul>
+        </div>
+    ))}
+</PostLayout>
