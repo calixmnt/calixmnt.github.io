@@ -17,6 +17,34 @@
   font-weight: 600;
 }
 
+.u-link {
+  position: relative;
+  display: inline-block;
+  color: var(--text-body);
+  font-weight: 700;
+  padding: 0.2rem 0.4rem;
+  white-space: nowrap;
+}
+
+.u-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 0.2rem;
+  background-color: var(--border);
+  transition: all 0.2s;
+  border-radius: 0.6rem;
+}
+
+.u-link:hover {
+}
+
+.u-link:hover::after {
+  height: 100%;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -104,7 +132,7 @@
   outline: none;
   border-radius: 0.5rem;
   padding: 0.4rem 0.6rem;
-  
+
   display: block;
   display: flex;
   align-items: center;
@@ -198,7 +226,7 @@
 .menu__item {
   display: flex;
   align-items: center;
-  column-gap: .9rem;
+  column-gap: 0.9rem;
   margin: 1.5rem 0 1.5rem 3rem;
 }
 
@@ -212,16 +240,15 @@
 }
 
 .menu__link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
-  height: .2rem;
+  height: 0.2rem;
   background-color: var(--border);
-  transition: all .2s;
-  border-radius: .6rem;
-
+  transition: all 0.2s;
+  border-radius: 0.6rem;
 }
 
 .menu__link:hover {
@@ -232,7 +259,7 @@
 }
 
 .menu__description {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   font-size: 1.3rem;
   line-height: 1.5rem;
 }
@@ -242,4 +269,40 @@
   font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 6px;
+}
+
+.post-by-year {
+  margin-top: 1.4rem;
+}
+
+.post-by-year__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.post-by-year__item {
+  margin: .5rem 0;
+  position: relative;
+  display: block;
+}
+
+/* .post-by-year__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+  height: .2rem;
+  width: 90%;
+  background-color: var(--border);
+} */
+
+.post-by-year__link {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.post-by-year__date {
+  color: var(--text-body);
+  font-size: 1.2rem;
 }

@@ -2,9 +2,9 @@
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import PostLayout from "../layouts/Post.astro";
+import { data } from "autoprefixer";
 
 const allPosts : CollectionEntry<'post'>[] = await getCollection('post');
-console.log(allPosts)
 
 const postByYear = allPosts.reduce((acc, post) => {
     const year = post.data.publishDate.getFullYear();
@@ -23,18 +23,22 @@ const postByYear = allPosts.reduce((acc, post) => {
 const postByYearArray = Object.entries(postByYear).map(([year, posts]) => ({
   year: parseInt(year, 10),
   posts,
-}));
+})).sort((a, b) => b.year - a.year);
+
 ---
 
 <PostLayout title="Title">
     {postByYearArray.map(({ year, posts }) => (
-        <div>
-            <h2>{year}</h2>
-            <ul>
+        <div class="post-by-year">
+            <h2 class="second-heading">{year}</h2>
+            <ul class="post-by-year__list">
                 {posts.map(post => (
-                    <li>{post.data.title}</li>
+                    <li class="post-by-year__item u-link">
+                      <a class="post-by-year__link">{post.data.title}</a>
+                      <span class="post-by-year__date">{post.data.publishDate.getMonth()}.{post.data.publishDate.getDate()}</span>
+                    </li>
                 ))}
-            </ul>
+            </ulcl>
         </div>
     ))}
 </PostLayout>
