@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '../utils/date'
+const props = Astro.props;
+
+export type Props = {
+    post : CollectionEntry<'post'>;
+    nextPost? : CollectionEntry<'post'>;
+    prevPost? : CollectionEntry<'post'>;
+}
+
+const { post } = props;
+const {title, publishDate,} = post.data;
+
+---
+
+<article class="post-header">
+    {
+        <h2 class="second-heading">{title}</h2>
+        <p class="post-header__date">{formatDate(publishDate, 'dd.MM yyyy')}</p>
+        <p>Par <a class="u-link">Calix Monnet.</a></p>
+    }
+</article>
+
+

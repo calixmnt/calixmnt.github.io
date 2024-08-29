@@ -271,6 +271,10 @@
   margin-bottom: 6px;
 }
 
+.post-header {
+  margin: 2rem 0 6rem 0 ;
+}
+
 .post-by-year {
   margin-top: 1.4rem;
 }
@@ -287,16 +291,6 @@
   display: block;
 }
 
-/* .post-by-year__item::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 50%;
-  height: .2rem;
-  width: 90%;
-  background-color: var(--border);
-} */
-
 .post-by-year__link {
   padding: 1rem;
   cursor: pointer;
@@ -305,4 +299,8 @@
 .post-by-year__date {
   color: var(--text-body);
   font-size: 1.2rem;
+}
+
+.back-button {
+  margin-bottom: 0.8em;
 }

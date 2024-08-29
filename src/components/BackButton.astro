@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { href } = Astro.props;
+
+export type Props = {
+  href : string
+}
+
+---
+
+<div class="back-button">
+  <a href={href} class="back-button__link u-link">
+      <Icon
+        class="back-button__icon"
+        name='feather:corner-down-left'
+        aria-hidden="true"
+        focusable="false"
+      />
+      retour
+    </a>
+</div>
