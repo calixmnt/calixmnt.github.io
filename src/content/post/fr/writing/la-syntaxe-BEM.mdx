@@ -1,0 +1,55 @@
+---
+title: La syntaxe BEM en CSS
+description: Découvrez comment utiliser la syntaxe BEM pour structurer vos styles CSS de manière claire et modulaire.
+publishDate: 2024-08-29
+tags: 
+- css
+- BEM
+---
+
+## **Tu devrais utiliser la syntaxe BEM !**
+> <br />
+
+La méthode [BEM](http://getbem.com/) (Block, Element, Modifier) est une convention de nommage en CSS qui facilite la gestion des styles pour des projets complexes. En utilisant BEM, vous pouvez créer des structures  CSS claires et modulaires, facilitant la maintenance et la réutilisation du code.
+
+> <br />
+## Définitions
+> <br />
+
+### Block (Bloc)
+> <br />
+
+Un **block** est un composant autonome qui peut être réutilisé dans différents contextes. Les blocs sont les éléments principaux de votre interface.<br/>
+Exemple : `.button`, `.header`, `.card`.
+> <br />
+### Element (Élément)
+> <br />
+
+Un **element** est une partie d'un block qui est dépendante de celui-ci. Les éléments ne peuvent exister indépendamment du bloc.<br/>
+Exemple : `.button__icon`, `.header__title`.
+
+> <br />
+
+### Modifier (Modificateur)
+> <br />
+
+Un **modifier** est une variation d'un block ou d'un element. Les modificateurs permettent de créer des versions différentes d'un même block ou élément.<br/>
+Exemple : `.button--large`, `.header__title--bold`.
+> <br />
+
+## Exemples
+> <br />
+
+### HTML
+> <br />
+
+Voici comment vous pourriez structurer votre HTML en utilisant BEM :
+> <br />
+> <br />
+
+```html
+<div class="card">
+  <h2 class="card__title">Titre de la carte</h2>
+  <p class="card__description">Description de la carte.</p>
+  <button class="card__button card__button--primary">Action</button>
+</div>

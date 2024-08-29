@@ -1,0 +1,22 @@
+---
+import BackButton from "@/components/BackButton.astro";
+import BaseLayout from "../layouts/Base.astro";
+import CardProject from "@/components/CardProject.astro";
+---
+
+<BaseLayout title="Projets">
+  <BackButton href="/" />
+  <h2 class="second-heading">Mes projets</h2>
+  <CardProject
+    title="ONEPBS"
+    description="Application pour la gestion des branchements sociaux de la Sodeci"
+  />
+  <CardProject
+    title="TimeTracking"
+    description="Application pour la gestion des branchements sociaux de la Sodeci"
+  />
+  <CardProject
+    title="monticketenligne"
+    description="Application pour la gestion des branchements sociaux de la Sodeci"
+  />
+</BaseLayout>

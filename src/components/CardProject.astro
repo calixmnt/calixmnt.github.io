@@ -1,0 +1,16 @@
+---
+type Props = {
+    title : string,
+    description : string,
+    state? : string,
+    isInDev? : Boolean,
+}
+const props =  Astro.props
+
+const {title, description, state, isInDev} = props
+---
+
+<div class='card-project'>
+    <h3 class='third-heading'>{title}</h3>
+    <p class='card-project__description'>{description}</p>
+</div>
