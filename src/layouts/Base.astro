@@ -5,7 +5,6 @@ import Footer from "@/components/layout/Footer.astro";
 
 import { ViewTransitions } from "astro:transitions";
 import ThemeProvider from "@/components/ThemeProvider.astro";
-import ThemeToggle from "@/components/ThemeToggle.astro";
 
 const { ...head } = Astro.props;
 ---
@@ -18,7 +17,6 @@ const { ...head } = Astro.props;
   </head>
   <body>
     <ThemeProvider />
-    <ThemeToggle />
     <Header />
     <main>
       <slot />

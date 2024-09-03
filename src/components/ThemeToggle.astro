@@ -134,35 +134,35 @@
   </button>
 </theme-toggle>
 
-<style is:inline>
+<style is:global>
   #sun-svg {
-    inset-inline-start: 50%;
     position: absolute;
-    top: 50%;
     height: 2rem;
     width: 2rem;
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
     transition: all 0.2s ease;
-
     --dark-scale: 0;
     --dark-opacity: 0;
   }
 
   #moon-svg {
-    inset-inline-start: 50%;
     position: absolute;
-    top: 50%;
-    height: 1.75rem;
-    width: 1.75rem;
+    height: 2rem;
+    width: 2rem;
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
     transition: all 0.2s ease;
-
     --dark-scale: 1;
     --dark-opacity: 1;
   }
 
   #toggle-theme {
-  }
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>

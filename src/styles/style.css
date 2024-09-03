@@ -58,15 +58,13 @@
 }
 
 .theme-button {
-  position: absolute;
-  right: 5rem;
-  bottom: 5rem;
+  
 }
 
 .header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 3rem;
   margin-bottom: 5rem;
 }
