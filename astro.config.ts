@@ -9,8 +9,8 @@ export default defineConfig({
     icon({
       iconDir: "src/icons",
       include: {
-        feather: ["github", "mail","at-sign", "corner-down-left"],
-        hugeicons:["notion-01","notion-02"]
+        feather: ["github", "mail", "at-sign", "corner-down-left"],
+        hugeicons: ["notion-01", "notion-02"],
       },
     }),
   ],

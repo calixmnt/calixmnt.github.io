@@ -1,14 +1,15 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { getAllPosts } from '../../../utils/post.ts'
+import type {CollectionEntry} from "astro:content";
 import PostLayout from "@/layouts/Post.astro";
 import PostHeader from "@/components/PostHeader.astro";
 import BackButton from "@/components/BackButton.astro";
 
 export const getStaticPaths = ( async () => {
-    const posts = await getAllPosts();
-    return posts.map((post) => ({
-        params : {slug : post.slug},
+    const posts : CollectionEntry<'post'>[] = await getAllPosts();
+    return posts.map((post : CollectionEntry<'post'>) => ({
+        params : {slug : post.slug.replace('fr/writing', '')},
         props : {post}
     }))
 }) satisfies GetStaticPaths;
@@ -20,7 +21,7 @@ const { Content } = await post.render();
 ---
 
 <PostLayout>
-    <BackButton href='/writing' />
+    <BackButton href='/writing/' />
     <PostHeader post={post} />
     <Content />
 </PostLayout>

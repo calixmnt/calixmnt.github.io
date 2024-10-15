@@ -13,7 +13,7 @@ interface Props {
 
 const {
   description = '',
-  // pageType = 'website',
+  pageType = 'website',
 } = Astro.props
 
 const title = [Astro.props.title, siteConfig.title].filter(Boolean).join(' | ')

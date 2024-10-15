@@ -10,7 +10,7 @@
 
 .u-accent {
   color: hsl(var(--theme-accent));
-  letter-spacing: 0.1.5rem;
+  letter-spacing: 0.15rem;
 }
 
 .u-bold {
@@ -131,7 +131,6 @@
   border-radius: 0.5rem;
   padding: 0.4rem 0.6rem;
 
-  display: block;
   display: flex;
   align-items: center;
   justify-content: center;

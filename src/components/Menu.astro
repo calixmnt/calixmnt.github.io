@@ -1,6 +1,4 @@
 ---
-const { title, desc, link } = Astro.props;
-
 const menuLinks: Array<{
   title: string;
   desc: string;
@@ -9,18 +7,18 @@ const menuLinks: Array<{
   {
     title: "Ce Que je sais",
     desc: "Ici, un espace pour partager les choses que j'apprends aux autres.",
-    link: "/writing",
+    link: "/writing/",
   },
   {
     title: "Mes Notes",
     desc: "Ici, un espace pour garder des tips utiles du quotidien.",
-    link: "/notes",
+    link: "/notes/",
   },
-  {
-    title: "Mes Projets",
-    desc: "Ici, l'aperçu de mes sides projects ainsi que des projets d'entreprise. ",
-    link: "/projects",
-  },
+  // {
+  //   title: "Mes Projets",
+  //   desc: "Ici, l'aperçu de mes sides projects ainsi que des projets d'entreprise.",
+  //   link: "/projects/",
+  // },
 ];
 ---
 
