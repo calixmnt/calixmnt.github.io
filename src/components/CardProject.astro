@@ -12,5 +12,6 @@ const {title, description, state, isInDev} = props
 
 <div class='card-project'>
     <h3 class='third-heading'>{title}</h3>
-    <p class='card-project__description'>{description}</p>
+    <p class='card-project__description'>{description}{state}</p>
+    {isInDev && <p>En developpement</p>}
 </div>
