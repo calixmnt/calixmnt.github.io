@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="fr"> <head><!-- High Priority Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ce que je sais | calix.monnet.github.io</title><meta name="generator" content="Astro v4.14.3"><meta name="theme-color" content=""><!-- Low Priority Global Metadata --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/src/styles/style.css"><!-- Page Metadata --><meta name="description" content=""><!-- Fonts --><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/taevel02/typeface-arita/arita.min.css"><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><title>Ce que je sais</title><link rel="stylesheet" href="/_astro/index.CDGCiV1P.css"><script type="module" src="/_astro/hoisted.wpZLEdlN.js"></script></head> <body> <script>
+	function getUserPref() {
+		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
+		return (
+			storedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+		);
+	}
+
+	function setTheme(newTheme) {
+		if (!newTheme || (newTheme !== "light" && newTheme !== "dark")) {
+			return console.warn(
+				`Incorrect theme value received. Expected 'light' or 'dark', received ${newTheme}`,
+			);
+		}
+
+		const root = document.documentElement;
+
+		// class already set to newTheme, exit early
+		if (
+			(newTheme === "dark" && root.classList.contains("dark")) ||
+			(newTheme === "light" && !root.classList.contains("dark"))
+		) {
+			return;
+		}
+
+		const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
+		document.documentElement.classList.toggle("dark", newTheme === "dark");
+		const bgColour = getComputedStyle(document.body).getPropertyValue("--theme-bg");
+
+		colorThemeMetaTag.setAttribute("content", `hsl(${bgColour})`);
+		if (typeof localStorage !== "undefined") {
+			localStorage.setItem("theme", newTheme);
+		}
+	}
+
+	// initial setup
+	setTheme(getUserPref());
+
+	// View Transitions hook to restore theme
+	document.addEventListener("astro:after-swap", () => setTheme(getUserPref()));
+
+	// listen for theme-change custom event, fired in src/components/ThemeToggle.astro
+	document.addEventListener("theme-change", (e) => {
+		setTheme(e.detail.theme);
+	});
+</script> <header class="header"> <div class="social"> <ul class="social__list"> <li class="social__item"> <a href="mailto:calixmonnet@gmail.com" target="_blank" class="social__link" rel="noopener noreferrer"> <svg width="20" height="20" viewBox="0 0 24 24" class="social__logo" aria-hidden="true" focusable="false" data-icon="feather:at-sign">  <symbol id="ai:feather:at-sign"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></g></symbol><use xlink:href="#ai:feather:at-sign"></use>  </svg> <span class="sr-only">Email</span>  </a> </li> </ul> </div>  <theme-toggle class="ms-2 sm:ms-4"> <button type="button" id="toggle-theme" class="theme-button" aria-label="Toggle Dark Mode" style="cursor:pointer;"> <svg id="sun-svg" aria-hidden="true" focusable="false" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M22 12L23 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 2V1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 23V22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 20L19 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 4L19 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 20L5 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 4L5 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M1 12L2 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> </svg> <svg id="moon-svg" aria-hidden="true" focusable="false" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path> <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path> <path d="M19 11h2m-1 -1v2"></path> </svg> </button> </theme-toggle>  </header> <main class="mb">  <div class="back-button"> <a href="/" class="back-button__link u-link"> <svg width="1em" height="1em" viewBox="0 0 24 24" class="back-button__icon" aria-hidden="true" focusable="false" data-icon="feather:corner-down-left">  <symbol id="ai:feather:corner-down-left"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m9 10l-5 5l5 5"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></g></symbol><use xlink:href="#ai:feather:corner-down-left"></use>  </svg>
+retour
+</a> </div> <div class="post-by-year"> <h2 class="second-heading">2024</h2> <ul class="post-by-year__list"> <li class="post-by-year__item"> <a href="/fr/post/la-syntaxe-bem" class="post-by-year__link u-link">La syntaxe BEM en CSS</a> <span class="post-by-year__date">29.08</span> </li> </ul> </div><div class="post-by-year"> <h2 class="second-heading">2002</h2> <ul class="post-by-year__list"> <li class="post-by-year__item"> <a href="/fr/post/example" class="post-by-year__link u-link">Exemple de Post</a> <span class="post-by-year__date">23.07</span> </li> </ul> </div> </main> </body></html>

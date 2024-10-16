@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="fr"> <head><!-- High Priority Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>calix.monnet.github.io</title><meta name="generator" content="Astro v4.14.3"><meta name="theme-color" content=""><!-- Low Priority Global Metadata --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/src/styles/style.css"><!-- Page Metadata --><meta name="description" content=""><!-- Fonts --><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/taevel02/typeface-arita/arita.min.css"><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><title></title><link rel="stylesheet" href="/_astro/index.CDGCiV1P.css"><script type="module" src="/_astro/hoisted.wpZLEdlN.js"></script></head> <body> <script>
+	function getUserPref() {
+		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
+		return (
+			storedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+		);
+	}
+
+	function setTheme(newTheme) {
+		if (!newTheme || (newTheme !== "light" && newTheme !== "dark")) {
+			return console.warn(
+				`Incorrect theme value received. Expected 'light' or 'dark', received ${newTheme}`,
+			);
+		}
+
+		const root = document.documentElement;
+
+		// class already set to newTheme, exit early
+		if (
+			(newTheme === "dark" && root.classList.contains("dark")) ||
+			(newTheme === "light" && !root.classList.contains("dark"))
+		) {
+			return;
+		}
+
+		const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
+		document.documentElement.classList.toggle("dark", newTheme === "dark");
+		const bgColour = getComputedStyle(document.body).getPropertyValue("--theme-bg");
+
+		colorThemeMetaTag.setAttribute("content", `hsl(${bgColour})`);
+		if (typeof localStorage !== "undefined") {
+			localStorage.setItem("theme", newTheme);
+		}
+	}
+
+	// initial setup
+	setTheme(getUserPref());
+
+	// View Transitions hook to restore theme
+	document.addEventListener("astro:after-swap", () => setTheme(getUserPref()));
+
+	// listen for theme-change custom event, fired in src/components/ThemeToggle.astro
+	document.addEventListener("theme-change", (e) => {
+		setTheme(e.detail.theme);
+	});
+</script> <header class="header"> <div class="social"> <ul class="social__list"> <li class="social__item"> <a href="mailto:calixmonnet@gmail.com" target="_blank" class="social__link" rel="noopener noreferrer"> <svg width="20" height="20" viewBox="0 0 24 24" class="social__logo" aria-hidden="true" focusable="false" data-icon="feather:at-sign">  <symbol id="ai:feather:at-sign"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></g></symbol><use xlink:href="#ai:feather:at-sign"></use>  </svg> <span class="sr-only">Email</span>  </a> </li> </ul> </div>  <theme-toggle class="ms-2 sm:ms-4"> <button type="button" id="toggle-theme" class="theme-button" aria-label="Toggle Dark Mode" style="cursor:pointer;"> <svg id="sun-svg" aria-hidden="true" focusable="false" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M22 12L23 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 2V1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 23V22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 20L19 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 4L19 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 20L5 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 4L5 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M1 12L2 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> </svg> <svg id="moon-svg" aria-hidden="true" focusable="false" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path> <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path> <path d="M19 11h2m-1 -1v2"></path> </svg> </button> </theme-toggle>  </header> <main class="mb">  <div class="back-button"> <a href="/writing/" class="back-button__link u-link"> <svg width="1em" height="1em" viewBox="0 0 24 24" class="back-button__icon" aria-hidden="true" focusable="false" data-icon="feather:corner-down-left">  <symbol id="ai:feather:corner-down-left"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m9 10l-5 5l5 5"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></g></symbol><use xlink:href="#ai:feather:corner-down-left"></use>  </svg>
+retour
+</a> </div> <article class="post-header"> <h2 class="second-heading">La syntaxe BEM en CSS</h2>
+        <p class="post-header__date">29.08 2024</p>
+        <p>Par <a class="u-link">Calix Monnet.</a></p> </article> <h2 id="tu-devrais-utiliser-la-syntaxe-bem"><strong>Tu devrais utiliser la syntaxe BEM !</strong></h2>
+<blockquote>
+<br/>
+</blockquote>
+<p>La méthode <a href="http://getbem.com/">BEM</a> (Block, Element, Modifier) est une convention de nommage en CSS qui facilite la gestion des styles pour des projets complexes. En utilisant BEM, vous pouvez créer des structures  CSS claires et modulaires, facilitant la maintenance et la réutilisation du code.</p>
+<blockquote>
+<br/>
+</blockquote>
+<h2 id="définitions">Définitions</h2>
+<blockquote>
+<br/>
+</blockquote>
+<h3 id="block-bloc">Block (Bloc)</h3>
+<blockquote>
+<br/>
+</blockquote>
+<p>Un <strong>block</strong> est un composant autonome qui peut être réutilisé dans différents contextes. Les blocs sont les éléments principaux de votre interface.<br/>
+Exemple : <code>.button</code>, <code>.header</code>, <code>.card</code>.</p>
+<blockquote>
+<br/>
+</blockquote>
+<h3 id="element-élément">Element (Élément)</h3>
+<blockquote>
+<br/>
+</blockquote>
+<p>Un <strong>element</strong> est une partie d’un block qui est dépendante de celui-ci. Les éléments ne peuvent exister indépendamment du bloc.<br/>
+Exemple : <code>.button__icon</code>, <code>.header__title</code>.</p>
+<blockquote>
+<br/>
+</blockquote>
+<h3 id="modifier-modificateur">Modifier (Modificateur)</h3>
+<blockquote>
+<br/>
+</blockquote>
+<p>Un <strong>modifier</strong> est une variation d’un block ou d’un element. Les modificateurs permettent de créer des versions différentes d’un même block ou élément.<br/>
+Exemple : <code>.button--large</code>, <code>.header__title--bold</code>.</p>
+<blockquote>
+<br/>
+</blockquote>
+<h2 id="exemples">Exemples</h2>
+<blockquote>
+<br/>
+</blockquote>
+<h3 id="html">HTML</h3>
+<blockquote>
+<br/>
+</blockquote>
+<p>Voici comment vous pourriez structurer votre HTML en utilisant BEM :</p>
+<blockquote>
+<br/>
+<br/>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card&quot;</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">h2</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__title&quot;</span><span style="color:#E1E4E8">&gt;Titre de la carte&lt;/</span><span style="color:#85E89D">h2</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">p</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__description&quot;</span><span style="color:#E1E4E8">&gt;Description de la carte.&lt;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__button card__button--primary&quot;</span><span style="color:#E1E4E8">&gt;Action&lt;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"></span></code></pre>  </main> </body></html>

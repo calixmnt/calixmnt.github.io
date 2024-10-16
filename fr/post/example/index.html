@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="fr"> <head><!-- High Priority Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>calix.monnet.github.io</title><meta name="generator" content="Astro v4.14.3"><meta name="theme-color" content=""><!-- Low Priority Global Metadata --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/src/styles/style.css"><!-- Page Metadata --><meta name="description" content=""><!-- Fonts --><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/taevel02/typeface-arita/arita.min.css"><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><title></title><link rel="stylesheet" href="/_astro/index.CDGCiV1P.css"><script type="module" src="/_astro/hoisted.wpZLEdlN.js"></script></head> <body> <script>
+	function getUserPref() {
+		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
+		return (
+			storedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+		);
+	}
+
+	function setTheme(newTheme) {
+		if (!newTheme || (newTheme !== "light" && newTheme !== "dark")) {
+			return console.warn(
+				`Incorrect theme value received. Expected 'light' or 'dark', received ${newTheme}`,
+			);
+		}
+
+		const root = document.documentElement;
+
+		// class already set to newTheme, exit early
+		if (
+			(newTheme === "dark" && root.classList.contains("dark")) ||
+			(newTheme === "light" && !root.classList.contains("dark"))
+		) {
+			return;
+		}
+
+		const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
+		document.documentElement.classList.toggle("dark", newTheme === "dark");
+		const bgColour = getComputedStyle(document.body).getPropertyValue("--theme-bg");
+
+		colorThemeMetaTag.setAttribute("content", `hsl(${bgColour})`);
+		if (typeof localStorage !== "undefined") {
+			localStorage.setItem("theme", newTheme);
+		}
+	}
+
+	// initial setup
+	setTheme(getUserPref());
+
+	// View Transitions hook to restore theme
+	document.addEventListener("astro:after-swap", () => setTheme(getUserPref()));
+
+	// listen for theme-change custom event, fired in src/components/ThemeToggle.astro
+	document.addEventListener("theme-change", (e) => {
+		setTheme(e.detail.theme);
+	});
+</script> <header class="header"> <div class="social"> <ul class="social__list"> <li class="social__item"> <a href="mailto:calixmonnet@gmail.com" target="_blank" class="social__link" rel="noopener noreferrer"> <svg width="20" height="20" viewBox="0 0 24 24" class="social__logo" aria-hidden="true" focusable="false" data-icon="feather:at-sign">  <symbol id="ai:feather:at-sign"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></g></symbol><use xlink:href="#ai:feather:at-sign"></use>  </svg> <span class="sr-only">Email</span>  </a> </li> </ul> </div>  <theme-toggle class="ms-2 sm:ms-4"> <button type="button" id="toggle-theme" class="theme-button" aria-label="Toggle Dark Mode" style="cursor:pointer;"> <svg id="sun-svg" aria-hidden="true" focusable="false" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M22 12L23 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 2V1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 23V22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 20L19 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 4L19 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 20L5 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 4L5 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M1 12L2 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> </svg> <svg id="moon-svg" aria-hidden="true" focusable="false" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path> <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path> <path d="M19 11h2m-1 -1v2"></path> </svg> </button> </theme-toggle>  </header> <main class="mb">  <div class="back-button"> <a href="/writing/" class="back-button__link u-link"> <svg width="1em" height="1em" viewBox="0 0 24 24" class="back-button__icon" aria-hidden="true" focusable="false" data-icon="feather:corner-down-left">  <symbol id="ai:feather:corner-down-left"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m9 10l-5 5l5 5"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></g></symbol><use xlink:href="#ai:feather:corner-down-left"></use>  </svg>
+retour
+</a> </div> <article class="post-header"> <h2 class="second-heading">Exemple de Post</h2>
+        <p class="post-header__date">23.07 2002</p>
+        <p>Par <a class="u-link">Calix Monnet.</a></p> </article> <p><strong>Markdown</strong> is a lightweight markup language based on plain text. It’s used for writing formatted documents in plain text and is known for its easy and simple syntax compared to traditional markup languages.</p>
+<p>This post documents how I utilize Markdown in this blog.</p>
+<h2 id="h2-minimalism">h2 Minimalism</h2>
+<p>As a frontend developer, I want to convey something through layout.
+<strong>I hope the text feels comfortable to the reader.</strong></p>
+<p>That’s why I value the <strong>beauty of whitespace</strong>.
+Pages crammed with content make reading unpleasant. I often leave a page after just glancing at the title.</p>
+<p>Here are some hidden details of the layout:</p>
+<ul>
+<li>The <strong>size of the title and the body text is the same.</strong></li>
+<li>This avoids a feeling of disconnect between characters and brings calmness upon accessing the page.</li>
+<li>The text feels straightforward, reminiscent of reading a book.</li>
+<li>The spacing between paragraphs is <strong>wide.</strong></li>
+<li>It gives a breathing space.</li>
+<li>It helps focus more on the current paragraph.</li>
+<li>The top area of the page is <strong>left empty.</strong></li>
+<li>This draws the eyes towards the center of the page where the text is.</li>
+<li>The color of the body text is notably <strong>light.</strong></li>
+<li>Titles and bold text are easily recognized.</li>
+<li>Important content is quickly identifiable.</li>
+</ul>
+<h3 id="h3-titles">h3 Titles</h3>
+<p>This blog uses only <code>h2</code> and <code>h3</code> titles.
+It’s to maintain the <strong>beauty of Semantic HTML</strong>. <del>(Occupational hazard)</del></p>
+<ul>
+<li><code>h1</code> already exists as it represents <code>the highest-level heading on the page</code>.</li>
+<li><code>h4</code> is a crime in itself. It’s evidence of a complex piece of writing.</li>
+</ul>
+<h2 id="basic-elements">Basic Elements</h2>
+<blockquote>
+<p>Quotations use <a href="https://en.wikipedia.org/wiki/Serif">Serif typeface</a>.
+Even the font itself makes the quoted text seem significant!</p>
+</blockquote>
+<p><em>Serif</em> typeface can be used within the text too.
+However, it’s not recommended as it disrupts the balance of the text.</p>
+<p><code>&lt;mark&gt;&lt;/mark&gt;</code> can be used to <mark>highlight text</mark>.</p>
+<p><a href="/">Links</a> have a subtle underline and minimal <code>hover</code> effects.
+<a href="/"><strong>Bold links</strong></a> are more eye-catching.
+<a href="https://bepyan.me/">External links</a> generate an icon indicating “a new tab will open.”
+<a href="https://github.com/bepyan">https://github.com/bepyan</a> By default, links are automatically parsed.</p>
+<p>The division line is subtle and not too prominent.
+It’s not frequently used as there’s enough spacing overall.</p>
+<hr/>
+<p>List</p>
+<ul>
+<li>Every citizen shall not be prosecuted for an act that does not constitute a crime under the law at the time of the act, nor shall be punished twice for the same crime.</li>
+<li>The term of the first President under this Constitution shall commence from the day this Constitution comes into force.</li>
+<li>All citizens have the right to receive education according to their ability.</li>
+</ul>
+<p>Ordered List</p>
+<ol>
+<li>An amendment to the Constitution may be proposed by a majority of the members of the National Assembly or by the President.</li>
+<li>The military shall have the sacred duty of national security and national defense, and its political neutrality shall be maintained.</li>
+</ol>
+<hr/>
+<h2 id="code-blocks">Code Blocks</h2>
+<p><code>inline code</code> <code>[1, 2, 3]{:js}</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>Block code</span></span>
+<span class="line"><span></span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> clsx, { </span><span style="color:#F97583">type</span><span style="color:#E1E4E8"> ClassValue } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &#39;clsx&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { twMerge } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &#39;tailwind-merge&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> cn</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">...</span><span style="color:#FFAB70">inputs</span><span style="color:#F97583">:</span><span style="color:#B392F0"> ClassValue</span><span style="color:#E1E4E8">[]) {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#B392F0"> twMerge</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">clsx</span><span style="color:#E1E4E8">(inputs));</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="tsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#9ECBFF"> &#39;~/styles/globals.css&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#F97583"> type</span><span style="color:#E1E4E8"> { Metadata } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &#39;next&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { fontMono, fontSans, fontSerif } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &#39;~/libs/fonts&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { cn } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &#39;~/libs/utils&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> RootLayout</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#FFAB70">  children</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">  children</span><span style="color:#F97583">:</span><span style="color:#B392F0"> React</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">ReactNode</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}) {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;</span><span style="color:#85E89D">html</span><span style="color:#B392F0"> lang</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;ko&quot;</span><span style="color:#B392F0"> suppressHydrationWarning</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">      &lt;</span><span style="color:#85E89D">body</span></span>
+<span class="line"><span style="color:#B392F0">        className</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{</span><span style="color:#B392F0">cn</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#9ECBFF">          &#39;bg-background min-h-screen font-sans antialiased&#39;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">          fontSans.variable,</span></span>
+<span class="line"><span style="color:#E1E4E8">          fontSerif.variable,</span></span>
+<span class="line"><span style="color:#E1E4E8">          fontMono.variable,</span></span>
+<span class="line"><span style="color:#E1E4E8">        )}</span></span>
+<span class="line"><span style="color:#E1E4E8">      &gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">        &lt;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> className</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;blur&quot;</span><span style="color:#B392F0"> aria-hidden</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;true&quot;</span><span style="color:#E1E4E8">&gt;&lt;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">        &lt;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> className</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;max-w-page container mx-auto pt-32&quot;</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">          &lt;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> className</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;main-grid&quot;</span><span style="color:#E1E4E8">&gt;{children}&lt;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">        &lt;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">      &lt;/</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;/</span><span style="color:#85E89D">html</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h2 id="table">Table</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Emotion</th><th>Description</th></tr></thead><tbody><tr><td>Joy</td><td><em>Pleasure, Joy, Happiness, Delight.</em> The pleased and satisfied feeling when a desire is fulfilled.</td></tr><tr><td>Sadness</td><td>Feeling heartache and pain upon encountering or witnessing a pitiable or regrettable event.</td></tr><tr><td>Fun</td><td>A feeling of being cheerful and happy without any annoyance.</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Pleasure</td><td>Pleasantness and enjoyment. Or the feeling of it.</td></tr><tr><td>Comfort</td><td>Comfort in both body and mind.</td></tr><tr><td>Delight</td><td>Joy and pleasure. Or the act of being joyful and enjoying.</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Left</th><th style="text-align:center">Center</th><th style="text-align:right">Right</th></tr></thead><tbody><tr><td>A</td><td style="text-align:center">B</td><td style="text-align:right">C</td></tr></tbody></table>
+<h2 id="image">Image</h2>
+<p><img src="https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?cs=srgb&dl=pexels-pixabay-262508.jpg&fm=jpg" alt="![Image Description](Link)"/></p>  </main> </body></html>
