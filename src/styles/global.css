@@ -13,6 +13,9 @@
   --gray-900: #000000;
   --gray-950: #000000;
 
+  --theme-accent: #007bff;
+  --transition: all 0.3s ease;
+
   --selection: hsla(0, 0%, 0%, 0.045);
   --border: hsla(0, 0%, 0%, 0.09);
 
@@ -40,6 +43,8 @@
   --gray-800: #ebebeb;
   --gray-900: #fff;
   --gray-950: #fff;
+
+  --theme-accent: #1e90ff;
 
   --selection: hsla(0, 0%, 100%, 0.077);
   --border: hsla(0, 0%, 100%, 0.1);
