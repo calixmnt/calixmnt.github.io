@@ -1,7 +1,7 @@
 ---
 import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/layout/Header.astro";
-import Footer from "@/components/layout/Footer.astro";
+// import Footer from "@/components/layout/Footer.astro";
 
 import { ViewTransitions } from "astro:transitions";
 import ThemeProvider from "@/components/ThemeProvider.astro";
@@ -21,7 +21,7 @@ const { ...head } = Astro.props;
     <Header />
     <main>
       <slot />
-      <Footer />
+      <!--<Footer />-->
     </main>
   </body>
 </html>

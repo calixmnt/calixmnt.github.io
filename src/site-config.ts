@@ -1,6 +1,6 @@
 export const siteConfig = {
   author: "Calix Monnet",
-  title: "calix.monnet.github.io",
+  title: "Calix.monnet",
   subtitle: "calixx.Monnet | lavibe | Funiki",
   description: "mon site à moi",
   email: "calixmonnet@gmail.com",
@@ -31,14 +31,14 @@ export const siteConfig = {
 };
 
 export const menuLinks: Array<{ title: string; path: string }> = [
-	{
-		title: "Accueil",
-		path: "/",
-	},
-	{
-		title: "Blog",
-		path: "/posts/",
-	},
+  {
+    title: "Accueil",
+    path: "/",
+  },
+  {
+    title: "Blog",
+    path: "/posts/",
+  },
 ];
 
 export default siteConfig;
