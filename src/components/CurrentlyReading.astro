@@ -1,0 +1,211 @@
+---
+// Composant pour afficher les lectures et réflexions actuelles
+interface CurrentItem {
+  type: 'book' | 'article' | 'thought';
+  title: string;
+  author?: string;
+  description: string;
+  link?: string;
+  progress?: string;
+}
+
+const currentItems: CurrentItem[] = [
+  {
+    type: 'book',
+    title: 'Le principe de l\'humanisme',
+    author: 'Felix Kruger & Daisaku Ikeda',
+    description: 'Un dialogue fascinant sur les valeurs humaines et la philosophie de vie.',
+    progress: 'En cours'
+  },
+  // {
+  //   type: 'thought',
+  //   title: 'Design minimaliste',
+  //   description: 'Réflexion sur l\'importance de la simplicité dans le développement web moderne.',
+  // },
+  // {
+  //   type: 'article',
+  //   title: 'Les micro-interactions en UX',
+  //   description: 'Comment les petits détails transforment l\'expérience utilisateur.',
+  //   link: '#'
+  // }
+];
+---
+
+<section class="currently-reading" aria-labelledby="currently-heading">
+  <h2 id="currently-heading" class="second-heading">en ce moment</h2>
+  <div class="currently-reading__grid">
+    {currentItems.map((item) => (
+      <article class="currently-reading__item" data-type={item.type}>
+        <div class="currently-reading__header">
+          <div class="currently-reading__type">
+            {item.type === 'book' && (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+            )}
+            {item.type === 'article' && (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14,2 14,8 20,8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10,9 9,9 8,9"/>
+              </svg>
+            )}
+            {item.type === 'thought' && (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M9 11H5a2 2 0 0 0-2 2v3c0 1.1.9 2 2 2h4l3 3 3-3h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-4l-3-3-3 3z"/>
+              </svg>
+            )}
+            <span class="currently-reading__type-label">
+              {item.type === 'book' && 'Lecture'}
+              {item.type === 'article' && 'Article'}
+              {item.type === 'thought' && 'Réflexion'}
+            </span>
+          </div>
+          {item.progress && (
+            <span class="currently-reading__progress">{item.progress}</span>
+          )}
+        </div>
+        
+        <h3 class="currently-reading__title">
+          {item.link ? (
+            <a href={item.link} class="u-link" target="_blank" rel="noopener noreferrer">
+              {item.title}
+            </a>
+          ) : (
+            item.title
+          )}
+        </h3>
+        
+        {item.author && (
+          <p class="currently-reading__author">par {item.author}</p>
+        )}
+        
+        <p class="currently-reading__description">{item.description}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .currently-reading {
+    margin-top: 5rem;
+  }
+
+  .currently-reading__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .currently-reading__item {
+    padding: 2rem;
+    background: var(--border);
+    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .currently-reading__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+    transition: left 0.8s ease;
+  }
+
+  .currently-reading__item:hover {
+    background-color: var(--selection);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+
+  .currently-reading__item:hover::before {
+    left: 100%;
+  }
+
+  .currently-reading__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .currently-reading__type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-body);
+    opacity: 0.8;
+  }
+
+  .currently-reading__type-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+
+  .currently-reading__progress {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    background: var(--selection);
+    border-radius: 0.5rem;
+    color: var(--text-body);
+    font-weight: 500;
+  }
+
+  .currently-reading__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--heading);
+    line-height: 1.3;
+  }
+
+  .currently-reading__author {
+    font-size: 0.9rem;
+    color: var(--text-body);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .currently-reading__description {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-body);
+  }
+
+  /* Couleurs spécifiques par type */
+  .currently-reading__item[data-type="book"] .currently-reading__type {
+    color: #8B5CF6;
+  }
+
+  .currently-reading__item[data-type="article"] .currently-reading__type {
+    color: #06B6D4;
+  }
+
+  .currently-reading__item[data-type="thought"] .currently-reading__type {
+    color: #F59E0B;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .currently-reading__grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .currently-reading__item {
+      padding: 1.5rem;
+    }
+  }
+</style>

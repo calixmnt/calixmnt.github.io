@@ -1,41 +1,117 @@
 ---
 import SocialIcon from './SocialIcon.astro';
 
-
-const socialLinks: Array<{
-  name: string;
-  friendlyName: string;
-  link: string;
-  text?: string;
-}> = [
+const socialLinks = [
   {
     name: "feather:github",
-    friendlyName: "Github",
+    friendlyName: "GitHub",
     link: "https://github.com/calixmnt",
+    text: "GitHub",
+    label: "Visiter mon profil GitHub (nouvel onglet)"
   },
   {
     name: "upwork",
     friendlyName: "Upwork",
     link: "https://www.upwork.com/freelancers/~01af36df4b705ad420",
+    text: "Upwork",
+    label: "Voir mon profil Upwork (nouvel onglet)"
   },
   {
     name: "feather:mail",
     friendlyName: "Email",
     link: "mailto:calixmonnet@gmail.com",
+    text: "Email",
+    label: "M'envoyer un email"
   },
   {
     name: "hugeicons:notion-02",
     friendlyName: "Notion",
-    text: "mon Cv",
+    text: "Mon CV",
     link: "https://stormy-danthus-b4d.notion.site/Calix-Monnet-FullStack-Web-Developper-87ce54e8e7c6466d95df8a4c409b56e3",
+    label: "Voir mon CV (nouvel onglet)"
   },
 ];
 ---
 
-<div class="social">
-  <ul class="social__list">
-    {socialLinks.map(iconProps => (
-      <SocialIcon {...iconProps} />
+<nav aria-label="Réseaux sociaux et contacts" class="social">
+  <ul class="social__list" role="list">
+    {socialLinks.map((iconProps, index) => (
+      <SocialIcon 
+        {...iconProps} 
+        aria-label={iconProps.label}
+        data-tooltip={iconProps.friendlyName}
+      />
     ))}
   </ul>
-</div>
+</nav>
+
+<style>
+  .social__list {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .social__item {
+    position: relative;
+  }
+
+  .social__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .social__link:hover,
+  .social__link:focus-visible {
+    background-color: var(--selection);
+    transform: translateY(-2px);
+    outline: none;
+  }
+
+  .social__logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .social__text {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  /* Tooltip */
+  .social__item::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-0.5rem) scale(0.9);
+    background-color: var(--bg-secondary);
+    color: var(--text-body);
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.4rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+
+  .social__item:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-0.75rem) scale(1);
+  }
+</style>

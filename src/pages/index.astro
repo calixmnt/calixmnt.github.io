@@ -2,19 +2,23 @@
 import Social from "@/components/Social.astro";
 import BaseLayout from "../layouts/Base.astro";
 import Menu from "@/components/Menu.astro";
+import CurrentlyReading from "@/components/CurrentlyReading.astro";
 ---
 
 <BaseLayout title="Accueil">
-    <section class="intoduction" aria-label="introduction">
-        <h1 class="first-heading">Calix Monnet</h1>
+    <section class="introduction" aria-labelledby="main-heading" role="banner">
+        <h1 id="main-heading" class="first-heading">Calix Monnet</h1>
         <p class="introduction__details">
-            Développeur web, curieux, passionné, amoureux de <b>design simple</b> et épuré.
-            <br/>Mes passions sont la <b>musique</b> et le <b>développement</b>.
+            Développeur web, curieux, passionné, amoureux de <strong>design simple</strong> et épuré.
+            <br/>Mes passions sont la <strong>musique</strong> et la <strong>création</strong>.
         </p>
         <Social/>
     </section>
-    <section class="menu">
-        <h2 class="second-heading"> le menu </h2>
+    
+    <CurrentlyReading/>
+    
+    <section class="menu" aria-labelledby="menu-heading">
+        <h2 id="menu-heading" class="second-heading">le menu</h2>
         <Menu/>
     </section>
 </BaseLayout>

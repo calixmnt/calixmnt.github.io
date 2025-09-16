@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://calixmnt.github.io/sitemap-index.xml

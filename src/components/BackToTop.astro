@@ -1,0 +1,147 @@
+---
+// Composant bouton "Retour en haut" accessible et discret
+---
+
+<button 
+  id="back-to-top" 
+  class="back-to-top"
+  aria-label="Retourner en haut de la page"
+  title="Retourner en haut"
+  type="button"
+>
+  <svg 
+    width="20" 
+    height="20" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    stroke-width="2" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="m18 15-6-6-6 6"/>
+  </svg>
+  <span class="sr-only">Retourner en haut de la page</span>
+</button>
+
+<style>
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--border);
+    color: var(--text-body);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background-color: var(--selection);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .back-to-top:focus {
+    outline: 2px solid var(--text-body);
+    outline-offset: 2px;
+  }
+
+  .back-to-top:active {
+    transform: translateY(0);
+  }
+
+  /* Respect des préférences de mouvement réduit */
+  @media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+      transition: opacity 0.3s ease;
+    }
+    
+    .back-to-top:hover {
+      transform: none;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .back-to-top {
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+</style>
+
+<script>
+  // Script pour gérer l'affichage et le comportement du bouton
+  document.addEventListener('DOMContentLoaded', () => {
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    if (!backToTopButton) return;
+
+    // Fonction pour afficher/masquer le bouton basé sur le scroll
+    const toggleButtonVisibility = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const shouldShow = scrollTop > 300; // Afficher après 300px de scroll
+      
+      if (shouldShow) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    };
+
+    // Fonction pour remonter en haut avec animation fluide
+    const scrollToTop = () => {
+      const scrollToTopSmooth = () => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (currentScroll > 0) {
+          window.requestAnimationFrame(scrollToTopSmooth);
+          window.scrollTo(0, currentScroll - (currentScroll / 8));
+        }
+      };
+      
+      // Utiliser scrollTo natif si l'utilisateur préfère un mouvement réduit
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      } else {
+        scrollToTopSmooth();
+      }
+    };
+
+    // Écouteurs d'événements
+    window.addEventListener('scroll', toggleButtonVisibility, { passive: true });
+    backToTopButton.addEventListener('click', scrollToTop);
+
+    // Support clavier
+    backToTopButton.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        scrollToTop();
+      }
+    });
+
+    // Vérification initiale
+    toggleButtonVisibility();
+  });
+</script>

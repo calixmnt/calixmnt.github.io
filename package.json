@@ -23,6 +23,8 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.5.1",
+    "@iconify-json/simple-icons": "^1.2.52",
     "autoprefixer": "^10.4.20",
     "open-props": "^1.7.5",
     "postcss": "^8.4.41",
