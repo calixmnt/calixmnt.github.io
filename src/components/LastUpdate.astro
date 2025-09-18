@@ -1,0 +1,61 @@
+---
+import { getLastUpdateInfo } from "@/utils/date";
+
+const updateInfo = getLastUpdateInfo();
+---
+
+<div class="last-update">
+    <p class="last-update__text">
+        <span class="last-update__label">Dernière mise à jour :</span>
+        <time class="last-update__date" datetime={new Date(updateInfo.timestamp).toISOString()}>
+            {updateInfo.dateTime}
+        </time>
+        <span class="last-update__hash" title={`Commit: ${updateInfo.hash}`}>
+            ({updateInfo.hash})
+        </span>
+    </p>
+</div>
+
+<style>
+    .last-update {
+        margin-top: 1rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--color-border, #e0e0e0);
+    }
+
+    .last-update__text {
+        font-size: 0.875rem;
+        color: var(--color-text-secondary, #666);
+        margin: 0;
+        text-align: center;
+    }
+
+    .last-update__label {
+        font-weight: 500;
+    }
+
+    .last-update__date {
+        font-weight: 400;
+        font-style: italic;
+        margin-left: 0.25rem;
+    }
+
+    .last-update__hash {
+        font-family: 'Courier New', monospace;
+        font-size: 0.8rem;
+        color: var(--color-text-muted, #999);
+        margin-left: 0.5rem;
+        opacity: 0.8;
+        cursor: help;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .last-update {
+            border-top-color: var(--color-border-dark, #333);
+        }
+        
+        .last-update__text {
+            color: var(--color-text-secondary-dark, #aaa);
+        }
+    }
+</style>

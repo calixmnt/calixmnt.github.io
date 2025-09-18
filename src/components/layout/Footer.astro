@@ -1,18 +1,21 @@
 ---
+import LastUpdate from "@/components/LastUpdate.astro";
 
 const currentYear = new Date().getFullYear();
 
 ---
 
-<footer class="footer">
-    <a href="/" class="second-heading">Calixmnt</a>
-    <div class="footer__links">
+<!-- <footer class="footer"> -->
+    <footer>
+    <!--<a href="/" class="second-heading">Calixmnt</a>
+     <div class="footer__links">
         <a href="#" class="footer__link">dépot githbub</a>
         <a href="#" class="footer__link">compte instagram</a>
         <a href="#" class="footer__link">lien utile</a>
-    </div>
-    <div class="copyright">
+    </div> -->
+    <!-- <div class="copyright">
         <p class="copyright__text">un design inspiré de <span class="u-underline"><a href="https://bepyan.github.io/" target="_blank">Bepyan</a></span> </p>
         <p class="current-year">&copy; {currentYear}</p>
-    </div>
+    </div> -->
+    <LastUpdate />
 </footer>
