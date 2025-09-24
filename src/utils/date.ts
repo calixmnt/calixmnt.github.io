@@ -22,11 +22,11 @@ const getLastCommitDate = (): Date => {
   try {
     // Récupère la date du dernier commit au format ISO
     const gitCommand = 'git log -1 --format=%cI';
-    const lastCommitDateStr = execSync(gitCommand, { 
+    const lastCommitDateStr = execSync(gitCommand, {
       encoding: 'utf8',
       cwd: process.cwd()
     }).trim();
-    
+
     return new Date(lastCommitDateStr);
   } catch (error) {
     console.warn('Impossible de récupérer la date du dernier commit Git:', error);
@@ -51,7 +51,7 @@ export const getLastUpdateDateTime = (): string => {
 export const getLastCommitHash = (): string => {
   try {
     const gitCommand = 'git log -1 --format=%h';
-    return execSync(gitCommand, { 
+    return execSync(gitCommand, {
       encoding: 'utf8',
       cwd: process.cwd()
     }).trim();
@@ -65,7 +65,7 @@ export const getLastCommitHash = (): string => {
 export const getLastUpdateInfo = () => {
   const date = getLastCommitDate();
   const hash = getLastCommitHash();
-  
+
   return {
     date: formatDate(date, 'dd/MM/yyyy'),
     dateTime: formatDate(date, 'dd/MM/yyyy à HH:mm'),
