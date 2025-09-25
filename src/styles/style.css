@@ -100,7 +100,7 @@
 
 /* Lien externe avec micro-interactions améliorées */
 [target="_blank"]:not(.no-external-icon)::after {
-  content: '&nearr;';
+  content: '\2197';
   display: inline-block;
   margin-left: 0.3em;
   font-size: 0.8em;
