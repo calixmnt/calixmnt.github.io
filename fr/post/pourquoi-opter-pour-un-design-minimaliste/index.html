@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="fr"> <head><!-- High Priority Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calix.monnet</title><meta name="generator" content="Astro v4.16.19"><meta name="theme-color" content=""><!-- Low Priority Global Metadata --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/src/styles/style.css"><!-- Page Metadata --><meta name="description" content=""><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><title></title><link rel="stylesheet" href="/_astro/about.zaszeULi.css"><script type="module" src="/_astro/hoisted.BDohoD_q.js"></script></head> <body> <div class="site"> <div class="site-content"> <script>
+	function getUserPref() {
+		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
+		return (
+			storedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+		);
+	}
+
+	function setTheme(newTheme) {
+		if (!newTheme || (newTheme !== "light" && newTheme !== "dark")) {
+			return console.warn(
+				`Incorrect theme value received. Expected 'light' or 'dark', received ${newTheme}`,
+			);
+		}
+
+		const root = document.documentElement;
+
+		// class already set to newTheme, exit early
+		if (
+			(newTheme === "dark" && root.classList.contains("dark")) ||
+			(newTheme === "light" && !root.classList.contains("dark"))
+		) {
+			return;
+		}
+
+		const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
+		document.documentElement.classList.toggle("dark", newTheme === "dark");
+		const bgColour = getComputedStyle(document.body).getPropertyValue("--theme-bg");
+
+		colorThemeMetaTag.setAttribute("content", `hsl(${bgColour})`);
+		if (typeof localStorage !== "undefined") {
+			localStorage.setItem("theme", newTheme);
+		}
+	}
+
+	// initial setup
+	setTheme(getUserPref());
+
+	// View Transitions hook to restore theme
+	document.addEventListener("astro:after-swap", () => setTheme(getUserPref()));
+
+	// listen for theme-change custom event, fired in src/components/ThemeToggle.astro
+	document.addEventListener("theme-change", (e) => {
+		setTheme(e.detail.theme);
+	});
+</script> <!-- <Announcement body="Limited slots available for consulting " href="https://calixmnt.github.io" /> --><header class="jurn-header" data-astro-cid-qlfjksao> <div class="jurn-header__container" data-astro-cid-qlfjksao> <a href="/" class="jurn-header__logo" data-astro-cid-qlfjksao>
+Calix Monnet
+<span class="jurn-header__tagline" data-astro-cid-qlfjksao>IT Consultant Web | Cloud | Big Data</span> </a> <div class="jurn-header__actions" data-astro-cid-qlfjksao>  <theme-toggle class="ms-2 sm:ms-4"> <button type="button" id="toggle-theme" class="theme-button" aria-label="Basculer entre mode sombre et clair" title="Changer le thème" style="cursor:pointer;"> <svg id="sun-svg" aria-hidden="true" focusable="false" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M22 12L23 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 2V1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 23V22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 20L19 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 4L19 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 20L5 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 4L5 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M1 12L2 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> </svg> <svg id="moon-svg" aria-hidden="true" focusable="false" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path> <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path> <path d="M19 11h2m-1 -1v2"></path> </svg> </button> </theme-toggle>  <div class="jurn-header__cta" data-astro-cid-qlfjksao> <a href="/contact/" class="cta-button" data-astro-cid-pxxnplno> Travaillez avec moi </a>  </div> </div> </div> </header>  <nav class="jurn-nav" aria-label="Navigation principale" data-astro-cid-pux6a34n> <div class="jurn-nav__container" data-astro-cid-pux6a34n> <div class="jurn-nav__content" data-astro-cid-pux6a34n> <ul class="jurn-nav__list" data-astro-cid-pux6a34n> <li class="jurn-nav__item" data-astro-cid-pux6a34n> <a href="/" class="jurn-nav__link" data-astro-cid-pux6a34n> accueil </a> </li><li class="jurn-nav__item" data-astro-cid-pux6a34n> <a href="/about/" class="jurn-nav__link" data-astro-cid-pux6a34n> à propos </a> </li><li class="jurn-nav__item" data-astro-cid-pux6a34n> <a href="/writing/" class="jurn-nav__link" data-astro-cid-pux6a34n> écrits </a> </li><li class="jurn-nav__item" data-astro-cid-pux6a34n> <a href="/contact/" class="jurn-nav__link" data-astro-cid-pux6a34n> contact </a> </li> </ul> </div> </div> </nav>  <main class="mb post-content">   <article class="post-header"> <h2 class="second-heading">Pourquoi opter pour un design minimaliste ?</h2>
+        <p class="post-header__date">29.10 2025</p>
+        <p>Par <a class="u-link">Calix Monnet.</a></p> </article> <div class="mdx-content"> <h1 id="design-minimaliste-quand-et-comment-ladopter">Design minimaliste, quand et comment l’adopter ?</h1>
+<p>Le design minimaliste n’est pas qu’une esthétique. C’est une <strong>discipline</strong> qui clarifie l’intention, réduit le bruit cognitif et rend les produits plus efficaces. Principe : <em>moins, mais mieux</em>.</p>
+<h2 id="quest-ce-que-le-minimalisme-en-design">Qu’est-ce que le minimalisme en design ?</h2>
+<p>Retirer tout ce qui n’apporte <strong>pas de valeur</strong> à l’objectif principal. Il ne s’agit pas de vider l’interface, mais <strong>d’orchestrer</strong> contenus, espaces et interactions pour guider l’utilisateur vers l’essentiel.</p>
+<h2 id="pourquoi-ladopter">Pourquoi l’adopter</h2>
+<ul>
+<li>
+<p><strong>Clarté &amp; focalisation</strong><br/>
+Une hiérarchie nette et des espaces généreux diminuent la charge mentale : on <strong>comprend plus vite</strong> quoi faire et où cliquer.</p>
+</li>
+<li>
+<p><strong>Performance &amp; accessibilité</strong><br/>
+Moins d’éléments = <strong>pages plus légères</strong> et chargement plus rapide (surtout sur mobile/réseaux lents). Des contrastes suffisants et une typo lisible améliorent l’<strong>inclusion</strong>.</p>
+</li>
+<li>
+<p><strong>Cohérence de marque</strong><br/>
+Palette restreinte, grille stable et typographie maîtrisée renforcent la <strong>crédibilité</strong> et la <strong>mémoire de marque</strong>.</p>
+</li>
+<li>
+<p><strong>Maintenance facilitée</strong><br/>
+Des systèmes simples (<strong>design tokens</strong>, composants réutilisables) se mettent à jour plus vite, avec moins de régressions.</p>
+</li>
+</ul>
+<h2 id="principes-clés-pour-réussir">Principes clés pour réussir</h2>
+<ul>
+<li>
+<p><strong>Hiérarchie visuelle</strong><br/>
+Servez-vous de la taille, du poids typographique, de la couleur et de l’espacement pour indiquer les priorités. <strong>Un seul H1</strong> par page, H2/H3 cohérents.</p>
+</li>
+<li>
+<p><strong>Espace négatif (whitespace)</strong><br/>
+L’espace n’est pas « vide » : il <strong>structure</strong>. Laissez respirer les blocs pour créer des repères visuels.</p>
+</li>
+<li>
+<p><strong>Typographie lisible</strong><br/>
+1–2 familles maximum. Travaillez l’<strong>interlignage</strong>, la longueur de ligne (<strong>45–80 caractères</strong>), les contrastes et des <strong>tailles fluides</strong>.</p>
+</li>
+<li>
+<p><strong>Couleurs &amp; contrastes</strong><br/>
+Limitez la palette. Vérifiez les <strong>contrastes WCAG</strong>. Réservez la couleur d’<strong>accent</strong> aux actions prioritaires.</p>
+</li>
+<li>
+<p><strong>Grille &amp; rythme</strong><br/>
+Grille fluide, système d’espacements <strong>4/8px</strong> : la cohérence émerge d’un <strong>rythme</strong> régulier.</p>
+</li>
+<li>
+<p><strong>Iconographie &amp; visuels intentionnels</strong><br/>
+N’ajoutez icônes/images <strong>que si</strong> elles améliorent la compréhension. Pas de décoration gratuite.</p>
+</li>
+<li>
+<p><strong>Micro-interactions sobres</strong><br/>
+Animations <strong>courtes</strong> et <strong>utiles</strong> : elles doivent <strong>guider</strong>, pas distraire.</p>
+</li>
+</ul>
+<h2 id="quand-éviter-le-minimalisme-strict">Quand éviter le minimalisme strict</h2>
+<ul>
+<li>Produits dont la valeur est la <strong>richesse visuelle</strong> (portfolios d’art, magazines).</li>
+<li>Interfaces <strong>denses</strong> pour experts ayant besoin de repères persistants (outils data).<br/>
+👉 Optez alors pour un <strong>minimalisme fonctionnel</strong> : simplifier <strong>sans cacher</strong> les commandes utiles.</li>
+</ul>
+<h2 id="exemples-concrets-dapplication">Exemples concrets d’application</h2>
+<ul>
+<li><strong>Landing page</strong> : un titre fort, un sous-titre clair, une preuve (stat/logos/témoignage) et <strong>un CTA principal</strong>. Le reste est secondaire.</li>
+<li><strong>Tableau de bord</strong> : regrouper par tâches, réduire les colonnes <strong>par défaut</strong>, surfaces neutres + <strong>indicateurs saillants</strong>.</li>
+<li><strong>Formulaire</strong> : champs groupés, labels explicites, aides contextuelles, <strong>validation en ligne</strong>, <strong>un CTA</strong> par écran.</li>
+</ul>
+<h2 id="erreurs-courantes-à-éviter">Erreurs courantes à éviter</h2>
+<ul>
+<li>Confondre minimalisme et <strong>pauvreté</strong> : retirer des éléments <strong>utiles</strong> affaiblit l’expérience.</li>
+<li><strong>Contrastes faibles</strong> : c’est « joli », mais illisible. Testez <strong>AA/AAA</strong>.</li>
+<li><strong>CTAs concurrents</strong> : trop d’actions « primaires » = plus <strong>aucune</strong> priorité.</li>
+<li>Typos <strong>trop fines/petites</strong> : élégantes mais fatigantes à l’écran.</li>
+</ul>
+<h2 id="checklist-pratique">Checklist pratique</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Objectif de page <strong>clair</strong> et <strong>mesurable</strong>.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <strong>Un seul</strong> CTA principal (les autres sont secondaires).</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Hiérarchie titres/paragraphes <strong>cohérente</strong> et accessible.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Palette <strong>réduite</strong> avec <strong>un accent</strong> pour l’action.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Rythme d’espacement <strong>régulier</strong> + grille responsive.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <strong>Chargement rapide</strong> : images optimisées, JS limité au nécessaire.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> États <strong>hover/focus/active</strong> visibles et utilisables au <strong>clavier</strong>.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Adopter le minimalisme, c’est choisir de <strong>servir l’utilisateur avant l’ornement</strong>. Cette discipline <strong>clarifie</strong>, <strong>accélère</strong> et <strong>crédibilise</strong> vos produits.<br/>
+Commencez par définir l’objectif prioritaire, <strong>retirez</strong> ce qui ne le sert pas, puis <strong>systématisez</strong> (grille, tokens, composants).<br/>
+Résultat : une expérience plus fluide, plus inclusive et plus durable.</p> </div>  </main> </div> <footer class="site-footer" data-astro-cid-35ed7um5> <div class="site-footer__container" data-astro-cid-35ed7um5> <nav class="site-footer__nav" aria-label="Navigation du pied de page" data-astro-cid-35ed7um5> <div class="site-footer__section" data-astro-cid-35ed7um5> <h3 class="site-footer__section-title" data-astro-cid-35ed7um5># Pages</h3> <ul class="site-footer__list" data-astro-cid-35ed7um5> <li data-astro-cid-35ed7um5> <a href="/" class="site-footer__link" data-astro-cid-35ed7um5> Accueil </a> </li><li data-astro-cid-35ed7um5> <a href="/about/" class="site-footer__link" data-astro-cid-35ed7um5> À propos </a> </li><li data-astro-cid-35ed7um5> <a href="/writing/" class="site-footer__link" data-astro-cid-35ed7um5> Écrits </a> </li><li data-astro-cid-35ed7um5> <a href="/projects/" class="site-footer__link" data-astro-cid-35ed7um5> Projets </a> </li><li data-astro-cid-35ed7um5> <a href="/contact/" class="site-footer__link" data-astro-cid-35ed7um5> Contact </a> </li> </ul> </div> </nav> <div class="site-footer__bottom" data-astro-cid-35ed7um5> <p class="site-footer__copyright" data-astro-cid-35ed7um5>
+&copy; 2025 Calix Monnet
+</p> </div> </div> </footer>  </div> </body></html>

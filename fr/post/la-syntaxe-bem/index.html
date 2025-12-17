@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="fr"> <head><!-- High Priority Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calix.monnet</title><meta name="generator" content="Astro v4.16.19"><meta name="theme-color" content=""><!-- Low Priority Global Metadata --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/src/styles/style.css"><!-- Page Metadata --><meta name="description" content=""><!-- Fonts --><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/taevel02/typeface-arita/arita.min.css"><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><title></title><link rel="stylesheet" href="/_astro/index.CsAf77-7.css"><script type="module" src="/_astro/hoisted.BDohoD_q.js"></script></head> <body> <script>
+<!DOCTYPE html><html lang="fr"> <head><!-- High Priority Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calix.monnet</title><meta name="generator" content="Astro v4.16.19"><meta name="theme-color" content=""><!-- Low Priority Global Metadata --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/src/styles/style.css"><!-- Page Metadata --><meta name="description" content=""><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><title></title><link rel="stylesheet" href="/_astro/about.zaszeULi.css"><script type="module" src="/_astro/hoisted.BDohoD_q.js"></script></head> <body> <div class="site"> <div class="site-content"> <script>
 	function getUserPref() {
 		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
 		return (
@@ -43,65 +43,156 @@
 	document.addEventListener("theme-change", (e) => {
 		setTheme(e.detail.theme);
 	});
-</script> <header class="header"> <div class="social"> <ul class="social__list"> <li class="social__item" data-astro-cid-v6thz4ju> <a href="mailto:calixmonnet@gmail.com" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Email (s'ouvre dans un nouvel onglet)" data-astro-cid-v6thz4ju> <svg width="1.2em" height="1.2em" viewBox="0 0 24 24" class="social__logo" aria-hidden="true" focusable="false" data-astro-cid-v6thz4ju data-icon="feather:at-sign">  <symbol id="ai:feather:at-sign"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></g></symbol><use xlink:href="#ai:feather:at-sign"></use>  </svg>  </a> </li>  </ul> </div>  <theme-toggle class="ms-2 sm:ms-4"> <button type="button" id="toggle-theme" class="theme-button" aria-label="Basculer entre mode sombre et clair" title="Changer le thème" style="cursor:pointer;"> <svg id="sun-svg" aria-hidden="true" focusable="false" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M22 12L23 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 2V1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 23V22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 20L19 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 4L19 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 20L5 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 4L5 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M1 12L2 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> </svg> <svg id="moon-svg" aria-hidden="true" focusable="false" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path> <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path> <path d="M19 11h2m-1 -1v2"></path> </svg> </button> </theme-toggle>  </header> <main class="mb">  <div class="back-button"> <a href="/writing/" class="back-button__link u-link"> <svg width="1em" height="1em" viewBox="0 0 24 24" class="back-button__icon" aria-hidden="true" focusable="false" data-icon="feather:corner-down-left">  <symbol id="ai:feather:corner-down-left"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m9 10l-5 5l5 5"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></g></symbol><use xlink:href="#ai:feather:corner-down-left"></use>  </svg>
-retour
-</a> </div> <article class="post-header"> <h2 class="second-heading">La syntaxe BEM en CSS</h2>
+</script> <!-- <Announcement body="Limited slots available for consulting " href="https://calixmnt.github.io" /> --><header class="jurn-header" data-astro-cid-qlfjksao> <div class="jurn-header__container" data-astro-cid-qlfjksao> <a href="/" class="jurn-header__logo" data-astro-cid-qlfjksao>
+Calix Monnet
+<span class="jurn-header__tagline" data-astro-cid-qlfjksao>IT Consultant Web | Cloud | Big Data</span> </a> <div class="jurn-header__actions" data-astro-cid-qlfjksao>  <theme-toggle class="ms-2 sm:ms-4"> <button type="button" id="toggle-theme" class="theme-button" aria-label="Basculer entre mode sombre et clair" title="Changer le thème" style="cursor:pointer;"> <svg id="sun-svg" aria-hidden="true" focusable="false" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M22 12L23 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 2V1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 23V22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 20L19 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 4L19 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 20L5 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 4L5 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M1 12L2 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> </svg> <svg id="moon-svg" aria-hidden="true" focusable="false" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path> <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path> <path d="M19 11h2m-1 -1v2"></path> </svg> </button> </theme-toggle>  <div class="jurn-header__cta" data-astro-cid-qlfjksao> <a href="/contact/" class="cta-button" data-astro-cid-pxxnplno> Travaillez avec moi </a>  </div> </div> </div> </header>  <nav class="jurn-nav" aria-label="Navigation principale" data-astro-cid-pux6a34n> <div class="jurn-nav__container" data-astro-cid-pux6a34n> <div class="jurn-nav__content" data-astro-cid-pux6a34n> <ul class="jurn-nav__list" data-astro-cid-pux6a34n> <li class="jurn-nav__item" data-astro-cid-pux6a34n> <a href="/" class="jurn-nav__link" data-astro-cid-pux6a34n> accueil </a> </li><li class="jurn-nav__item" data-astro-cid-pux6a34n> <a href="/about/" class="jurn-nav__link" data-astro-cid-pux6a34n> à propos </a> </li><li class="jurn-nav__item" data-astro-cid-pux6a34n> <a href="/writing/" class="jurn-nav__link" data-astro-cid-pux6a34n> écrits </a> </li><li class="jurn-nav__item" data-astro-cid-pux6a34n> <a href="/contact/" class="jurn-nav__link" data-astro-cid-pux6a34n> contact </a> </li> </ul> </div> </div> </nav>  <main class="mb post-content">   <article class="post-header"> <h2 class="second-heading">la syntaxe BEM en CSS</h2>
         <p class="post-header__date">29.08 2024</p>
-        <p>Par <a class="u-link">Calix Monnet.</a></p> </article> <h2 id="tu-devrais-utiliser-la-syntaxe-bem"><strong>Tu devrais utiliser la syntaxe BEM !</strong></h2>
-<blockquote>
-<br/>
-</blockquote>
-<p>La méthode <a href="http://getbem.com/">BEM</a> (Block, Element, Modifier) est une convention de nommage en CSS qui facilite la gestion des styles pour des projets complexes. En utilisant BEM, vous pouvez créer des structures  CSS claires et modulaires, facilitant la maintenance et la réutilisation du code.</p>
-<blockquote>
-<br/>
-</blockquote>
-<h2 id="définitions">Définitions</h2>
-<blockquote>
-<br/>
-</blockquote>
-<h3 id="block-bloc">Block (Bloc)</h3>
-<blockquote>
-<br/>
-</blockquote>
-<p>Un <strong>block</strong> est un composant autonome qui peut être réutilisé dans différents contextes. Les blocs sont les éléments principaux de votre interface.<br/>
-Exemple : <code>.button</code>, <code>.header</code>, <code>.card</code>.</p>
-<blockquote>
-<br/>
-</blockquote>
-<h3 id="element-élément">Element (Élément)</h3>
-<blockquote>
-<br/>
-</blockquote>
-<p>Un <strong>element</strong> est une partie d’un block qui est dépendante de celui-ci. Les éléments ne peuvent exister indépendamment du bloc.<br/>
-Exemple : <code>.button__icon</code>, <code>.header__title</code>.</p>
-<blockquote>
-<br/>
-</blockquote>
-<h3 id="modifier-modificateur">Modifier (Modificateur)</h3>
-<blockquote>
-<br/>
-</blockquote>
-<p>Un <strong>modifier</strong> est une variation d’un block ou d’un element. Les modificateurs permettent de créer des versions différentes d’un même block ou élément.<br/>
-Exemple : <code>.button--large</code>, <code>.header__title--bold</code>.</p>
-<blockquote>
-<br/>
-</blockquote>
-<h2 id="exemples">Exemples</h2>
-<blockquote>
-<br/>
-</blockquote>
-<h3 id="html">HTML</h3>
-<blockquote>
-<br/>
-</blockquote>
-<p>Voici comment vous pourriez structurer votre HTML en utilisant BEM :</p>
-<blockquote>
-<br/>
-<br/>
-</blockquote>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card&quot;</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">h2</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__title&quot;</span><span style="color:#E1E4E8">&gt;Titre de la carte&lt;/</span><span style="color:#85E89D">h2</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">p</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__description&quot;</span><span style="color:#E1E4E8">&gt;Description de la carte.&lt;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__button card__button--primary&quot;</span><span style="color:#E1E4E8">&gt;Action&lt;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"></span></code></pre>  </main> </body></html>
+        <p>Par <a class="u-link">Calix Monnet.</a></p> </article> <div class="mdx-content"> <p><a href="http://getbem.com/">BEM</a> (Block, Element, Modifier) est une convention de nommage CSS qui rend vos feuilles de style prévisibles et maintenables. Plutôt qu’une méthodologie rigide, c’est un système de nommage cohérent qui évite les conflits et clarifie les relations entre composants.</p>
+<h2 id="les-trois-piliers">les trois piliers</h2>
+<h3 id="block">block</h3>
+<p>Un composant autonome et réutilisable. C’est l’entité racine qui a du sens par elle-même.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.card</span><span style="color:#E1E4E8"> { }</span></span>
+<span class="line"><span style="color:#B392F0">.button</span><span style="color:#E1E4E8"> { }</span></span>
+<span class="line"><span style="color:#B392F0">.header</span><span style="color:#E1E4E8"> { }</span></span>
+<span class="line"></span></code></pre>
+<h3 id="element">element</h3>
+<p>Une partie d’un block, sans sens en dehors de son contexte. Notation : <code>block__element</code>.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.card__title</span><span style="color:#E1E4E8"> { }</span></span>
+<span class="line"><span style="color:#B392F0">.card__description</span><span style="color:#E1E4E8"> { }</span></span>
+<span class="line"><span style="color:#B392F0">.button__icon</span><span style="color:#E1E4E8"> { }</span></span>
+<span class="line"></span></code></pre>
+<h3 id="modifier">modifier</h3>
+<p>Une variante d’un block ou element. Notation : <code>block--modifier</code> ou <code>block__element--modifier</code>.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.button--primary</span><span style="color:#E1E4E8"> { }</span></span>
+<span class="line"><span style="color:#B392F0">.button--large</span><span style="color:#E1E4E8"> { }</span></span>
+<span class="line"><span style="color:#B392F0">.card__title--bold</span><span style="color:#E1E4E8"> { }</span></span>
+<span class="line"></span></code></pre>
+<h2 id="exemple-complet">exemple complet</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">article</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card card--featured&quot;</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">header</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__header&quot;</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;</span><span style="color:#85E89D">h2</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__title&quot;</span><span style="color:#E1E4E8">&gt;titre de l&#39;article&lt;/</span><span style="color:#85E89D">h2</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;</span><span style="color:#85E89D">time</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__date&quot;</span><span style="color:#E1E4E8">&gt;29.08.2024&lt;/</span><span style="color:#85E89D">time</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;/</span><span style="color:#85E89D">header</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__body&quot;</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;</span><span style="color:#85E89D">p</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__description&quot;</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">      Description concise du contenu de la carte.</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">footer</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__footer&quot;</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__button card__button--primary&quot;</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">      &lt;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__button-icon&quot;</span><span style="color:#E1E4E8">&gt;→&lt;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">      &lt;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;card__button-text&quot;</span><span style="color:#E1E4E8">&gt;lire plus&lt;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;/</span><span style="color:#85E89D">footer</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">article</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* Block */</span></span>
+<span class="line"><span style="color:#B392F0">.card</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  border</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--border</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  border-radius</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  padding</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Modifier du block */</span></span>
+<span class="line"><span style="color:#B392F0">.card--featured</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  border-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--accent</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  box-shadow</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#79B8FF"> 4</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> 12</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> rgba</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0.1</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Elements */</span></span>
+<span class="line"><span style="color:#B392F0">.card__header</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  margin-bottom</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card__title</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  font-weight</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">600</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  margin</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#79B8FF"> 0</span><span style="color:#79B8FF"> 0.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card__date</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--text-muted</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.875</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card__body</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  margin-bottom</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card__description</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  line-height</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1.6</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--text-secondary</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card__footer</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">flex</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  justify-content</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">flex-end</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card__button</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">inline-flex</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  align-items</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">center</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  gap</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  padding</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.75</span><span style="color:#F97583">rem</span><span style="color:#79B8FF"> 1.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">none</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border-radius</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.375</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--gray-200</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  cursor</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">pointer</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  transition</span><span style="color:#E1E4E8">: </span><span style="color:#FDAEB7;font-style:italic">background</span><span style="color:#79B8FF"> 0.2</span><span style="color:#F97583">s</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card__button:hover</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--gray-300</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Modifier de l&#39;element */</span></span>
+<span class="line"><span style="color:#B392F0">.card__button--primary</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--accent</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">white</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card__button--primary:hover</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--accent-dark</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card__button-icon</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1.25</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card__button-text</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  font-weight</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">500</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h2 id="bonnes-pratiques">bonnes pratiques</h2>
+<p><strong>évitez l’imbrication profonde</strong><br/>
+<code>card__header__title__icon</code> → trop complexe<br/>
+<code>card__title-icon</code> → mieux</p>
+<p><strong>un seul niveau d’element</strong><br/>
+Les elements appartiennent toujours au block, pas à d’autres elements.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* ✗ Éviter */</span></span>
+<span class="line"><span style="color:#B392F0">.card__header__title</span><span style="color:#E1E4E8"> { }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* ✓ Préférer */</span></span>
+<span class="line"><span style="color:#B392F0">.card__title</span><span style="color:#E1E4E8"> { }</span></span>
+<span class="line"></span></code></pre>
+<p><strong>les modificateurs ne remplacent pas la classe de base</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="html"><code><span class="line"><span style="color:#6A737D">&lt;!-- ✗ Incorrect --&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;button--primary&quot;</span><span style="color:#E1E4E8">&gt;clic&lt;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">&lt;!-- ✓ Correct --&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;button button--primary&quot;</span><span style="color:#E1E4E8">&gt;clic&lt;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"></span></code></pre>
+<p><strong>restez cohérent</strong><br/>
+Choisissez vos conventions (camelCase, kebab-case) et tenez-vous-y dans tout le projet.</p>
+<h2 id="pourquoi-bem">pourquoi BEM ?</h2>
+<ul>
+<li><strong>clarté</strong> : on comprend la structure en lisant les classes</li>
+<li><strong>modularité</strong> : les composants sont isolés et réutilisables</li>
+<li><strong>spécificité faible</strong> : pas de guerre de <code>!important</code></li>
+<li><strong>scalabilité</strong> : fonctionne sur des projets de toute taille</li>
+</ul>
+<p>BEM n’est pas une solution miracle, mais c’est un système éprouvé qui rend le CSS plus prévisible. À vous de l’adapter à vos besoins.</p> </div>  </main> </div> <footer class="site-footer" data-astro-cid-35ed7um5> <div class="site-footer__container" data-astro-cid-35ed7um5> <nav class="site-footer__nav" aria-label="Navigation du pied de page" data-astro-cid-35ed7um5> <div class="site-footer__section" data-astro-cid-35ed7um5> <h3 class="site-footer__section-title" data-astro-cid-35ed7um5># Pages</h3> <ul class="site-footer__list" data-astro-cid-35ed7um5> <li data-astro-cid-35ed7um5> <a href="/" class="site-footer__link" data-astro-cid-35ed7um5> Accueil </a> </li><li data-astro-cid-35ed7um5> <a href="/about/" class="site-footer__link" data-astro-cid-35ed7um5> À propos </a> </li><li data-astro-cid-35ed7um5> <a href="/writing/" class="site-footer__link" data-astro-cid-35ed7um5> Écrits </a> </li><li data-astro-cid-35ed7um5> <a href="/projects/" class="site-footer__link" data-astro-cid-35ed7um5> Projets </a> </li><li data-astro-cid-35ed7um5> <a href="/contact/" class="site-footer__link" data-astro-cid-35ed7um5> Contact </a> </li> </ul> </div> </nav> <div class="site-footer__bottom" data-astro-cid-35ed7um5> <p class="site-footer__copyright" data-astro-cid-35ed7um5>
+&copy; 2025 Calix Monnet
+</p> </div> </div> </footer>  </div> </body></html>
