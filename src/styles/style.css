@@ -313,10 +313,7 @@ a {
   row-gap: 1.5rem;
   font-size: 1.2rem;
   line-height: 1.25rem;
-  border-top-width: 0.1rem;
-  border-style: solid;
-  border-color: var(--border);
-  margin-top: 20rem;
+  /* margin-top: 20rem; */
   padding: 1.5rem;
 }
 
@@ -468,7 +465,9 @@ a {
 }
 
 .post-header {
-  margin: 2rem 0 6rem 0 ;
+  margin: 2rem 0 6rem 0;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .mb {
@@ -501,10 +500,30 @@ a {
   font-size: 1.2rem;
 }
 
-.back-button {
-  display: flex;
-  justify-content: end;
-  margin-bottom: 2rem;
+/* --- Back button (option : aligner à gauche, style discrétisé) ---------- */
+.back-button{
+  margin-bottom: 1.25rem;
+}
+
+.back-button__link{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .4rem .7rem;
+  border: 1px solid var(--line);
+  border-radius: .6rem;
+  text-decoration: none;
+  color: var(--text-body);
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.back-button__link:hover{
+  background: var(--hover);
+  border-color: color-mix(in oklab, var(--heading) 25%, transparent);
+}
+
+.back-button__link:focus-visible{
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--heading) 30%, transparent);
 }
 
 .card-project {

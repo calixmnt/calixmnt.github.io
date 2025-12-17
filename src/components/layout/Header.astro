@@ -1,37 +1,79 @@
 ---
-import SocialIcon from "../SocialIcon.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
-
-
-const socialLinks: Array<{
-  name: string;
-  friendlyName: string;
-  link: string;
-  text?: string;
-}> = [
-  {
-    name: "feather:at-sign",
-    friendlyName: "Email",
-    link: "mailto:calixmonnet@gmail.com",
-  },
-  // {
-  //   name: "hugeicons:notion-01",
-  //   friendlyName: "Notion",
-  //   link: "https://stormy-danthus-b4d.notion.site/Calix-Monnet-FullStack-Web-Developper-87ce54e8e7c6466d95df8a4c409b56e3",
-  // },
-];
+import Announcement from "../Announcement.astro";
+import CTAButton from "../CTAButton.astro";
 ---
 
 
+<!-- <Announcement body="Limited slots available for consulting " href="https://calixmnt.github.io" /> -->
+<header class="jurn-header">
+  <div class="jurn-header__container">
+    <a href="/" class="jurn-header__logo">
+      Calix Monnet
+      <span class="jurn-header__tagline">IT Consultant Web | Cloud | Big Data</span>
+    </a>
 
-<header class="header">
-  <div class="social">
-    <ul class="social__list">
-      {socialLinks.map(iconProps => (
-        <SocialIcon {...iconProps} />
-      ))}
-    </ul>
+    <div class="jurn-header__actions">
+      <ThemeToggle />
+      <div class="jurn-header__cta">
+        <CTAButton href="/contact/" text="Travaillez avec moi" />
+      </div>
+    </div>
   </div>
-  <ThemeToggle />
-
 </header>
+
+<style>
+  .jurn-header {
+    padding: 2rem 3rem;
+    margin-bottom: 0;
+  }
+
+  .jurn-header__container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .jurn-header__logo {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--heading);
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    letter-spacing: -0.02em;
+  }
+
+  .jurn-header__logo:hover {
+    transform: translateY(-1px);
+  }
+
+  .jurn-header__tagline {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-second);
+    margin-top: 0.3rem;
+    letter-spacing: 0;
+  }
+
+  .jurn-header__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .jurn-header {
+      padding: 1.5rem;
+    }
+
+    .jurn-header__container {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+</style>

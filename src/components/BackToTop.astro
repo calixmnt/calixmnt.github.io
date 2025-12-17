@@ -112,21 +112,15 @@
 
     // Fonction pour remonter en haut avec animation fluide
     const scrollToTop = () => {
-      const scrollToTopSmooth = () => {
-        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (currentScroll > 0) {
-          window.requestAnimationFrame(scrollToTopSmooth);
-          window.scrollTo(0, currentScroll - (currentScroll / 8));
-        }
-      };
+      // Utiliser le comportement approprié selon les préférences utilisateur
+      const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches 
+        ? 'auto' 
+        : 'smooth';
       
-      // Utiliser scrollTo natif si l'utilisateur préfère un mouvement réduit
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        window.scrollTo({ top: 0, behavior: 'auto' });
-      } else {
-        scrollToTopSmooth();
-      }
+      window.scrollTo({ 
+        top: 0, 
+        behavior: behavior 
+      });
     };
 
     // Écouteurs d'événements

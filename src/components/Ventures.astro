@@ -1,0 +1,137 @@
+---
+export interface Venture {
+  title: string;
+  status?: string;
+  description: string;
+  link?: string;
+  linkText?: string;
+}
+
+interface Props {
+  ventures: Venture[];
+}
+
+const { ventures } = Astro.props;
+---
+
+<section class="ventures" aria-labelledby="ventures-title">
+  <h2 id="ventures-title" class="ventures__title">outils</h2>
+  
+  <div class="ventures__list">
+    {ventures.map(venture => (
+      <article class="venture-card">
+        <div class="venture-card__header">
+          <h3 class="venture-card__title">{venture.title}</h3>
+          {venture.status && (
+            <span class="venture-card__status">({venture.status})</span>
+          )}
+        </div>
+        <p class="venture-card__description">{venture.description}</p>
+        {venture.link && (
+          <a 
+            href={venture.link} 
+            class="venture-card__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {venture.linkText || "Visiter"}
+          </a>
+        )}
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .ventures {
+    margin: 6rem 0;
+  }
+
+  .ventures__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+  }
+
+  .ventures__list {
+    display: flex;
+    gap: 5rem;
+  }
+
+  .venture-card {
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* .venture-card:last-child {
+    border-bottom: none;
+  } */
+
+  .venture-card__header {
+    /* display: flex; */
+    /* align-items: baseline; */
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .venture-card__title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--heading);
+    letter-spacing: -0.01em;
+  }
+
+  .venture-card__status {
+    font-size: 1.3rem;
+    color: var(--text-disabled);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .venture-card__description {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: var(--text-second);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .venture-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.4rem;
+    color: var(--text-body);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: all 0.2s ease;
+  }
+
+  .venture-card__link:hover {
+    color: var(--heading);
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 768px) {
+    .ventures {
+      margin: 4rem 0;
+    }
+
+    .ventures__title {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .venture-card__title {
+      font-size: 1.5rem;
+    }
+
+    .venture-card__description {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+  }
+</style>

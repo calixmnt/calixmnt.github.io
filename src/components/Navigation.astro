@@ -1,0 +1,122 @@
+---
+import CTAButton from "@/components/CTAButton.astro";
+
+const navLinks = [
+  { title: "accueil", path: "/" },
+  { title: "à propos", path: "/about/" },
+  { title: "écrits", path: "/writing/" },
+  // { title: "projets", path: "/projects/" },
+  { title: "contact", path: "/contact/" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="jurn-nav" aria-label="Navigation principale">
+  <div class="jurn-nav__container">
+    <div class="jurn-nav__content">
+      <ul class="jurn-nav__list">
+        {navLinks.map(link => {
+          const isActive = currentPath === link.path || 
+                          (link.path !== "/" && currentPath.startsWith(link.path));
+          return (
+            <li class="jurn-nav__item">
+              <a 
+                href={link.path} 
+                class:list={["jurn-nav__link", { "jurn-nav__link--active": isActive }]}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {link.title}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .jurn-nav {
+    padding: 0 3rem 2rem;
+    margin-bottom: 3rem;
+    /* border-bottom: 1px solid var(--border); */
+  }
+
+  .jurn-nav__container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+
+  .jurn-nav__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .jurn-nav__list {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .jurn-nav__cta {
+    flex-shrink: 0;
+  }
+
+  .jurn-nav__link {
+    font-size: 1.4rem;
+    color: var(--text-second);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    border-radius: 2.4rem;
+    transition: all 0.2s ease;
+    display: block;
+    letter-spacing: -0.01em;
+  }
+
+  .jurn-nav__link:hover {
+    color: var(--text-body);
+    background-color: var(--selection);
+  }
+
+  .jurn-nav__link--active {
+    color: var(--text-body);
+    font-weight: 500;
+    background-color: var(--selection);
+  }
+
+  @media (max-width: 768px) {
+    .jurn-nav {
+      padding: 0 1.5rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .jurn-nav__content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .jurn-nav__list {
+      gap: 0.5rem;
+    }
+
+    .jurn-nav__link {
+      font-size: 1.3rem;
+      padding: 0.5rem 0.8rem;
+    }
+
+    .jurn-nav__cta {
+      width: 100%;
+    }
+
+    .jurn-nav__cta :global(.cta-button) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

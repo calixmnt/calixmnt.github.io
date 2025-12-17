@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/Base.astro";
+---
+
+<BaseLayout title="À propos - Calix Monnet">
+  <section class="about-split">
+    <h1 class="about-split__title">moi</h1>
+
+    <div class="about-split__content">
+      <p>
+        Je construis des expériences web modernes, rapides et accessibles. J’aime
+        articuler <strong>exigence technique</strong> et <strong>sens du design</strong> pour livrer des
+        interfaces utiles et élégantes.
+      </p>
+
+      <p>
+        Côté stack&nbsp;: JavaScript/TypeScript, React, Astro, Node.js, Laravel, Asp.Net. Je m’oriente
+        de plus en plus vers le <strong>Cloud & Data/IA</strong>, avec une approche
+        “always start with the end” et une <strong>pensée en systèmes</strong> : petites itérations,
+        mesures anonymes, décisions guidées par les données.
+      </p>
+
+      <p>
+        J’aime la musique et l’art.&nbsp;<em>Covered</em> est un petit side-project pour retrouver
+        vite des pochettes propres, garder des favoris et profiter d’une galerie.
+        J’en publie régulièrement pour apprendre, partager et créer de la valeur
+        concrète pour la communauté et les entreprises.
+      </p>
+
+      <p>
+        Vous avez un projet ou une idée à prototyper&nbsp;? Écrivez-moi&nbsp;:
+        <a href="mailto:calixmonnet@gmail.com">calixmonnet@gmail.com</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Contrainte globale & espacements */
+  .about-split {
+    --gap: clamp(2rem, 6vw, 6rem);
+    --title-w: min(32ch, 30vw);
+    --content-w: min(70ch, 100%);
+    margin: clamp(3rem, 8vw, 7rem) auto;
+    display: grid;
+    grid-template-columns: var(--title-w) 1fr;
+    gap: var(--gap);
+    align-items: start;
+  }
+
+  /* Titre gros, sticky sur desktop */
+  .about-split__title {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: 1.1;
+    font-weight: 800;
+    color: var(--heading);
+    position: sticky;
+    top: 2rem;              /* ajuste/retire si tu ne veux pas l’effet sticky */
+    margin: 0;
+  }
+
+  /* Colonne de texte étroite, typographie confortable */
+  .about-split__content {
+    max-width: var(--content-w);
+  }
+
+  .about-split__content p {
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
+    line-height: 1.8;
+    color: var(--text-second);
+    margin: 0 0 1.25rem;
+  }
+
+  .about-split__content a {
+    color: var(--text-body);
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+  .about-split__content a:hover {
+    color: var(--heading);
+    text-underline-offset: .3em;
+  }
+
+  /* Responsive: 1 colonne */
+  @media (max-width: 900px) {
+    .about-split {
+      grid-template-columns: 1fr;
+    }
+    .about-split__title {
+      position: static;
+      margin-bottom: .5rem;
+    }
+  }
+</style>

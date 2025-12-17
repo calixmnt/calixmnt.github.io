@@ -1,24 +1,52 @@
 ---
-import Social from "@/components/Social.astro";
 import BaseLayout from "../layouts/Base.astro";
-import Menu from "@/components/Menu.astro";
-import CurrentlyReading from "@/components/CurrentlyReading.astro";
+import Hero from "@/components/Hero.astro";
+import Ventures from "@/components/Ventures.astro";
+import BlogPreview from "@/components/BlogPreview.astro";
+import type { Venture } from "@/components/Ventures.astro";
+import type { BlogPost } from "@/components/BlogPreview.astro";
+
+// Données des projets
+const ventures: Venture[] = [
+  {
+    title: "Covered",
+    // status: "actuel",
+    description:
+      "Mini-app pour retrouver en quelques secondes des pochettes d’albums/EP propres, les enregistrer en favoris, les voir en galerie et découvrir l’album du jour.",
+    link: "https://covered.lavibeagency.com",
+    linkText: "Visiter",
+  },
+  {
+    title: "nxx",
+    status: "actuel",
+    description:
+      "Mini-app pour retrouver en quelques secondes des pochettes d’albums/EP propres, les enregistrer en favoris, les voir",
+    link: "https://covered.lavibeagency.com",
+    linkText: "Visiter",
+  },
+
+  // Ajoutez vos autres projets ici
+];
+
+// Données des articles de blog (à remplacer par vos vrais articles)
+const recentPosts: BlogPost[] = [
+  // Ces données seront remplacées par vos vrais articles
+  // Exemple :
+  {
+    title: "Pourquoi opter pour un design minimaliste ?",
+    slug: "fr/post/pourquoi-opter-pour-un-design-minimaliste",
+  },
+];
 ---
 
-<BaseLayout title="Accueil">
-    <section class="introduction" aria-labelledby="main-heading" role="banner">
-        <h1 id="main-heading" class="first-heading">Calix Monnet</h1>
-        <p class="introduction__details">
-            Développeur web, curieux, passionné, amoureux de <strong>design simple</strong>.
-            <br/>Mes passions sont la <strong>musique</strong> et la <strong>création</strong>.
-        </p>
-        <Social/>
-    </section>
-    
-    <CurrentlyReading/>
-    
-    <section class="menu" aria-labelledby="menu-heading">
-        <h2 id="menu-heading" class="second-heading">menu</h2>
-        <Menu/>
-    </section>
+<BaseLayout title="Accueil - Calix Monnet">
+  
+  <Hero
+    title="bonjour, je suis Calix"
+    description="Développeur web passionné par le <strong>design simple</strong>. Je crée des expériences web modernes et accessibles, en mettant l'accent sur la performance et l'expérience utilisateur. Mes passions sont la <strong>musique</strong>, la <strong>création</strong> et l'apprentissage continu."
+  />
+
+  {ventures.length > 0 && <Ventures ventures={ventures} />}
+
+  {recentPosts.length > 0 && <BlogPreview posts={recentPosts} />}
 </BaseLayout>

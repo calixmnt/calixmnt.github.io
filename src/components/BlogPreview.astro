@@ -1,0 +1,109 @@
+---
+export interface BlogPost {
+  title: string;
+  slug: string;
+  date?: string;
+}
+
+interface Props {
+  posts: BlogPost[];
+  viewAllLink?: string;
+}
+
+const { posts, viewAllLink = "/writing/" } = Astro.props;
+---
+
+<section class="blog-preview" aria-labelledby="blog-title">
+  <div class="blog-preview__header">
+    <h2 id="blog-title" class="blog-preview__title">pensées</h2>
+    {viewAllLink && (
+      <a href={viewAllLink} class="blog-preview__view-all">
+        Voir tout →
+      </a>
+    )}
+  </div>
+  
+  <div class="blog-preview__list">
+    {posts.map(post => (
+      <article class="blog-post-item">
+        <a href={`${post.slug}/`} class="blog-post-item__link">
+          <h3 class="blog-post-item__title">{post.title} →</h3>
+        </a>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .blog-preview {
+    margin: 6rem 0;
+  }
+
+  .blog-preview__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3rem;
+  }
+
+  .blog-preview__title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--heading);
+  }
+
+  .blog-preview__view-all {
+    font-size: 1.4rem;
+    color: var(--text-body);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .blog-preview__view-all:hover {
+    color: var(--heading);
+    transform: translateX(3px);
+  }
+
+  .blog-preview__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .blog-post-item__link {
+    display: block;
+    text-decoration: none;
+    padding: 1rem 0;
+    transition: all 0.2s ease;
+  }
+
+  .blog-post-item__link:hover {
+    transform: translateX(5px);
+  }
+
+  .blog-post-item__title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--text-body);
+    transition: color 0.2s ease;
+  }
+
+  .blog-post-item__link:hover .blog-post-item__title {
+    color: var(--heading);
+  }
+
+  @media (max-width: 768px) {
+    .blog-preview {
+      margin: 4rem 0;
+    }
+
+    .blog-preview__title {
+      font-size: 1.8rem;
+    }
+
+    .blog-post-item__title {
+      font-size: 1.5rem;
+    }
+  }
+</style>

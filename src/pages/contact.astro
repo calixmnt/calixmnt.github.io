@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../layouts/Base.astro";
+import Hero from "@/components/Hero.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<BaseLayout title="Contact - Calix Monnet">
+  <Hero 
+    title="Contact"
+    description="Vous avez un projet en tête ou simplement envie d'échanger ? N'hésitez pas à me contacter."
+  />
+
+  <section class="contact-content">
+    <div class="contact-methods">
+      <a href="mailto:calixmonnet@gmail.com" class="contact-card">
+        <div class="contact-card__icon">
+          <Icon name="feather:mail" size={24} />
+        </div>
+        <div class="contact-card__content">
+          <h2 class="contact-card__title">Email</h2>
+          <p class="contact-card__text">calixmonnet@gmail.com</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/calixmnt" class="contact-card" target="_blank" rel="noopener noreferrer">
+        <div class="contact-card__icon">
+          <Icon name="feather:github" size={24} />
+        </div>
+        <div class="contact-card__content">
+          <h2 class="contact-card__title">GitHub</h2>
+          <p class="contact-card__text">@calixmnt</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="contact-info">
+      <p class="contact-info__text">
+        Je suis toujours ouvert aux nouvelles opportunités et collaborations. 
+        Que ce soit pour un projet web, une consultation ou simplement pour discuter 
+        de technologie et de design, je serais ravi d'échanger avec vous.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-content {
+    margin: 4rem 0;
+  }
+
+  .contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 0.8rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .contact-card:hover {
+    background-color: var(--selection);
+    border-color: var(--text-disabled);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .contact-card__icon {
+    color: var(--text-body);
+    flex-shrink: 0;
+  }
+
+  .contact-card__content {
+    flex: 1;
+  }
+
+  .contact-card__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--heading);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-card__text {
+    font-size: 1.4rem;
+    color: var(--text-second);
+  }
+
+  .contact-info {
+    max-width: 70ch;
+  }
+
+  .contact-info__text {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    color: var(--text-second);
+  }
+
+  @media (max-width: 768px) {
+    .contact-methods {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .contact-card {
+      padding: 1.5rem;
+    }
+
+    .contact-card__title {
+      font-size: 1.5rem;
+    }
+
+    .contact-info__text {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+  }
+</style>

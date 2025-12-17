@@ -21,7 +21,9 @@ const { Content } = await post.render();
 ---
 
 <PostLayout>
-    <BackButton href='/writing/' />
+    <!-- <BackButton href='/writing/' /> -->
     <PostHeader post={post} />
-    <Content />
+    <div class="mdx-content">
+        <Content />
+    </div>
 </PostLayout>

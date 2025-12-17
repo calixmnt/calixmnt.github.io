@@ -1,0 +1,77 @@
+---
+interface Props {
+    body: string;
+    href?: string;
+}
+
+const { href, body } = Astro.props;
+---
+
+<div class="announcement-bar" data-announcement>
+    <div class="announcement-bar__content">
+        <p>{body}</p>
+        {href && <a href={href} target="_blank" rel="noopener noreferrer" />}
+    </div>
+    <button
+        class="announcement-bar__close-button"
+        type="button"
+        aria-label="Fermer l'annonce">&times;</button
+    >
+</div>
+
+<style>
+    .announcement-bar {
+        background-color: var(--gray-special);
+        color: var(--gray-50);
+        position: relative;
+        padding: 1rem 4rem;
+        font-size: 0.9em;
+        line-height: 1.2rem;
+        text-align: center;
+        z-index: 90;
+    }
+
+    .announcement-bar__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .announcement-bar__close-button {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1.5rem;
+        line-height: 1;
+        padding: 0.5rem;
+    }
+</style>
+
+<script>
+    (() => {
+        const bar = document.querySelector("[data-announcement]") as HTMLElement | null;
+        if (!bar) return;
+        try {
+            if (localStorage.getItem("announcementClosed") === "true") {
+                bar.style.display = "none";
+                return;
+            }
+            const btn = bar.querySelector(".announcement-bar__close-button");
+            if (btn) {
+                btn.addEventListener("click", () => {
+                    localStorage.setItem("announcementClosed", "true");
+                    bar.style.display = "none";
+                });
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    })();
+</script>

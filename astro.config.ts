@@ -11,7 +11,7 @@ export default defineConfig({
   // Configuration des métadonnées SEO via des variables d'environnement
   // Ces variables peuvent être définies dans un fichier .env
   // SITE_TITLE="Calix Monnet - Développeur Web"
-  // SITE_DESCRIPTION="Développeur web passionné par le design simple et épuré. Découvrez mon travail et mes projets."
+  // SITE_DESCRIPTION="Développeur web passionné par le design simple. Découvrez mon travail et mes projets."
   
   // Configuration des intégrations
   integrations: [
