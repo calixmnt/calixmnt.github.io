@@ -4,7 +4,7 @@ import { getAllPosts } from '../../../utils/post.ts'
 import type {CollectionEntry} from "astro:content";
 import PostLayout from "@/layouts/Post.astro";
 import PostHeader from "@/components/PostHeader.astro";
-import BackButton from "@/components/BackButton.astro";
+// import BackButton from "@/components/BackButton.astro";
 
 export const getStaticPaths = ( async () => {
     const posts : CollectionEntry<'post'>[] = await getAllPosts();

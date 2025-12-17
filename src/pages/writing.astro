@@ -50,7 +50,7 @@ const postByYearArray = Object.entries(postByYear)
                                     </span>
                                     <time
                                         class="archive__date"
-                                        dateTime={post.data.publishDate}
+                                        datetime={post.data.publishDate.toISOString()}
                                     >
                                         {formatDate(
                                             post.data.publishDate,
