@@ -1,21 +1,21 @@
 ---
 import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/layout/Header.astro";
-
+import PostHeader from "@/components/PostHeader.astro";
 import { ViewTransitions } from "astro:transitions";
 import ThemeProvider from "@/components/ThemeProvider.astro";
 import Navigation from "@/components/Navigation.astro";
 import Footer from "@/components/layout/Footer.astro";
 
-const { ...head } = Astro.props;
+const { post, image, imageAlt, title, description, ...head } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="fr">
   <head>
-    <BaseHead {...head} />
+    <BaseHead {...head} title={title} description={description} image={image} />
     <ViewTransitions />
-    <title>{head.title}</title>
+    <title>{title}</title>
   </head>
   <body>
     <div class="site">
@@ -23,10 +23,20 @@ const { ...head } = Astro.props;
         <ThemeProvider />
         <Header />
         <Navigation />
+
         <main class="mb post-content">
+          <PostHeader post={post} />
+
+          {image && (
+            <figure class="post-hero">
+              <img src={image} alt={imageAlt ?? title} loading="eager" />
+            </figure>
+          )}
+
           <slot />
         </main>
       </div>
+
       <Footer />
     </div>
   </body>

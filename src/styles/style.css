@@ -564,3 +564,18 @@ a {
 .card-project:hover .card-project__description {
   transform: translateX(2px);
 }
+
+
+.post-hero {
+  margin: 2.5rem auto 3rem;
+  max-width: 750px;           /* ajuste entre 720–960 selon ton design */
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 3rem;
+}
+
+.post-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
