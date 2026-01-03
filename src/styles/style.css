@@ -568,9 +568,15 @@ a {
 
 .post-hero {
   margin: 2.5rem auto 3rem;
-  max-width: 750px;           /* ajuste entre 720–960 selon ton design */
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 3rem;
+  max-width: var(--mdx-content-width);
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .post-hero {
+    max-width: 100%;
+    padding: 0;
+  }
 }
 
 .post-hero img {

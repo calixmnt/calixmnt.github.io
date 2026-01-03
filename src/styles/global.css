@@ -177,6 +177,12 @@ main {
   position: relative;
 }
 
+@media (max-width: 768px) {
+  main {
+    padding: 0 1.5rem;
+  }
+}
+
 .archive {
   --gap: clamp(1.5rem, 3vw, 2.5rem);
   --line: color-mix(in oklab, var(--text-body) 22%, transparent);
@@ -264,9 +270,17 @@ main {
 }
 
 .mdx-content {
-  width: 70%;
+  width: 100%;
+  /* max-width: var(--mdx-content-width); */
+  max-width: 68ch;
   margin: 0 auto;
-  max-width: var(--mdx-content-width);
+  padding: 0 2rem; /* donne de l'air sur desktop */
+}
+
+@media (max-width: 768px) {
+  .mdx-content {
+    padding: 0; /* main gère déjà le padding en mobile */
+  }
 }
 
 /* Espacement pour le contenu MDX */
