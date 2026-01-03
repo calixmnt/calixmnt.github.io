@@ -5,7 +5,11 @@ import BackButton from "@/components/BackButton.astro";
 import { formatDate } from "@/utils/date.ts";
 import { getAllPosts } from "../utils/post";
 
-const allPosts: CollectionEntry<"post">[] = await getAllPosts();
+const rawPosts = await getAllPosts();
+
+const allPosts: CollectionEntry<"post">[] = rawPosts.filter(
+  (p): p is CollectionEntry<"post"> => !!p && !!p.data && !!p.data.publishDate
+);
 
 const postByYear: Record<number, CollectionEntry<"post">[]> = allPosts.reduce(
     (acc, post) => {

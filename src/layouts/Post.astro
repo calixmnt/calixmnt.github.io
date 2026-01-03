@@ -25,7 +25,7 @@ const { post, image, imageAlt, title, description, ...head } = Astro.props;
         <Navigation />
 
         <main class="mb post-content">
-          <PostHeader post={post} />
+          {post && <PostHeader post={post} />}
 
           {image && (
             <figure class="post-hero">

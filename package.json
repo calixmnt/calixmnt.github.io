@@ -26,6 +26,7 @@
     "@astrojs/sitemap": "^3.5.1",
     "@iconify-json/simple-icons": "^1.2.52",
     "autoprefixer": "^10.4.20",
+    "baseline-browser-mapping": "^2.9.11",
     "open-props": "^1.7.5",
     "postcss": "^8.4.41",
     "postcss-jit-props": "^1.0.14"

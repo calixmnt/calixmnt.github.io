@@ -1,25 +1,27 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { formatDate } from '../utils/date'
-const props = Astro.props;
+import type { CollectionEntry } from "astro:content";
+import { formatDate } from "../utils/date";
 
 export type Props = {
-    post : CollectionEntry<'post'>;
-    nextPost? : CollectionEntry<'post'>;
-    prevPost? : CollectionEntry<'post'>;
-}
+  post: CollectionEntry<"post">;
+  nextPost?: CollectionEntry<"post">;
+  prevPost?: CollectionEntry<"post">;
+};
 
-const { post } = props;
-const {title, publishDate,} = post.data;
+const { post } = Astro.props;
+const { title, publishDate } = post.data;
 
+// sécurité minimale
+const date = publishDate instanceof Date ? publishDate : new Date(publishDate);
+const dateLabel = Number.isNaN(date.getTime()) ? "" : formatDate(date, "dd.MM yyyy");
 ---
 
 <article class="post-header">
-    {
-        <h2 class="second-heading">{title}</h2>
-        <p class="post-header__date">{formatDate(publishDate, 'dd.MM yyyy')}</p>
-        <p>Par <a class="u-link">Calix Monnet.</a></p>
-    }
+  <h2 class="second-heading">{title}</h2>
+
+  {dateLabel && <p class="post-header__date">{dateLabel}</p>}
+
+  <p>
+    Par <a class="u-link" href="/about">Calix Monnet</a>.
+  </p>
 </article>
-
-
