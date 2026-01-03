@@ -13,6 +13,7 @@
   --gray-900: #000000;
   --gray-950: #000000;
   --gray-special: #15171a;
+  --gray-special2: #fafafa;
   --footer-background: #f4f4f6;
 
   --theme-accent: #007bff;
@@ -21,7 +22,7 @@
   --selection: hsla(0, 0%, 0%, 0.045);
   --border: hsla(0, 0%, 0%, 0.09);
 
-  --page-background: var(--gray-50);
+  --page-background: var(--gray-special2);
   --bg-announcement: var(--gray-950);
 
   --heading: var(--gray-900);
@@ -51,6 +52,7 @@
   --gray-900: #fff;
   --gray-950: #fff;
   --gray-special: #d8d8d8;
+  --gray-special2: #171717;
   --footer-background: #f4f4f6;
 
   --theme-accent: #1e90ff;
@@ -81,6 +83,12 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-size: .1rem;
+  line-height: 1.5;
+}
+
 
 input {
   font: inherit;
