@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="fr"> <head><!-- High Priority Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>La personnalité ne change guère, mais sa composition peut changer | Calix.monnet</title><meta name="generator" content="Astro v4.16.19"><meta name="theme-color" content=""><!-- Low Priority Global Metadata --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/src/styles/global.css"><link rel="stylesheet" href="/src/styles/style.css"><!-- Page Metadata --><meta name="description" content="On ne change pas toujours qui l’on est, mais on peut transformer la qualité de ce que l’on vit."><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><title>La personnalité ne change guère, mais sa composition peut changer</title><link rel="stylesheet" href="/_astro/about.BtGID4Vu.css"><script type="module" src="/_astro/hoisted.BDohoD_q.js"></script></head> <body> <div class="site"> <div class="site-content"> <script>
+	function getUserPref() {
+		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
+		return (
+			storedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+		);
+	}
+
+	function setTheme(newTheme) {
+		if (!newTheme || (newTheme !== "light" && newTheme !== "dark")) {
+			return console.warn(
+				`Incorrect theme value received. Expected 'light' or 'dark', received ${newTheme}`,
+			);
+		}
+
+		const root = document.documentElement;
+
+		// class already set to newTheme, exit early
+		if (
+			(newTheme === "dark" && root.classList.contains("dark")) ||
+			(newTheme === "light" && !root.classList.contains("dark"))
+		) {
+			return;
+		}
+
+		const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
+		document.documentElement.classList.toggle("dark", newTheme === "dark");
+		const bgColour = getComputedStyle(document.body).getPropertyValue("--theme-bg");
+
+		colorThemeMetaTag.setAttribute("content", `hsl(${bgColour})`);
+		if (typeof localStorage !== "undefined") {
+			localStorage.setItem("theme", newTheme);
+		}
+	}
+
+	// initial setup
+	setTheme(getUserPref());
+
+	// View Transitions hook to restore theme
+	document.addEventListener("astro:after-swap", () => setTheme(getUserPref()));
+
+	// listen for theme-change custom event, fired in src/components/ThemeToggle.astro
+	document.addEventListener("theme-change", (e) => {
+		setTheme(e.detail.theme);
+	});
+</script> <!-- <Announcement body="Limited slots available for consulting " href="https://calixmnt.github.io" /> --><header class="jurn-header" data-astro-cid-qlfjksao> <div class="jurn-header__container" data-astro-cid-qlfjksao> <a href="/" class="jurn-header__logo" data-astro-cid-qlfjksao>
+Calix Monnet
+<span class="jurn-header__tagline" data-astro-cid-qlfjksao>IT Consultant Web | Cloud | Big Data</span> </a> <div class="jurn-header__actions" data-astro-cid-qlfjksao>  <theme-toggle class="ms-2 sm:ms-4"> <button type="button" id="toggle-theme" class="theme-button" aria-label="Basculer entre mode sombre et clair" title="Changer le thème" style="cursor:pointer;"> <svg id="sun-svg" aria-hidden="true" focusable="false" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M22 12L23 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 2V1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 23V22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 20L19 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 4L19 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 20L5 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 4L5 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M1 12L2 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path> </svg> <svg id="moon-svg" aria-hidden="true" focusable="false" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path> <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path> <path d="M19 11h2m-1 -1v2"></path> </svg> </button> </theme-toggle>  <div class="jurn-header__cta" data-astro-cid-qlfjksao> <a href="/contact/" class="cta-button" data-astro-cid-pxxnplno> Travaillez avec moi </a>  </div> </div> </div> </header>  <nav class="jurn-nav" aria-label="Navigation principale" data-astro-cid-pux6a34n> <div class="jurn-nav__container" data-astro-cid-pux6a34n> <div class="jurn-nav__content" data-astro-cid-pux6a34n> <ul class="jurn-nav__list" data-astro-cid-pux6a34n> <li class="jurn-nav__item" data-astro-cid-pux6a34n> <a href="/" class="jurn-nav__link" data-astro-cid-pux6a34n> accueil </a> </li><li class="jurn-nav__item" data-astro-cid-pux6a34n> <a href="/about/" class="jurn-nav__link" data-astro-cid-pux6a34n> à propos </a> </li><li class="jurn-nav__item" data-astro-cid-pux6a34n> <a href="/writing/" class="jurn-nav__link" data-astro-cid-pux6a34n> écrits </a> </li><li class="jurn-nav__item" data-astro-cid-pux6a34n> <a href="/contact/" class="jurn-nav__link" data-astro-cid-pux6a34n> contact </a> </li> </ul> </div> </div> </nav>  <main class="mb post-content"> <article class="post-header"> <h2 class="second-heading">La personnalité ne change guère, mais sa composition peut changer</h2> <p class="post-header__date">10.01 2026</p> <p>
+Par <a class="u-link" href="/about">Calix Monnet</a>.
+</p> </article> <figure class="post-hero"> <img src="/assets/blog/personnalite-ne-change-pas.png" alt="La personnalité ne change guère, mais sa composition peut changer" loading="eager"> </figure>  <div class="mdx-content"> <h2 id="-la-personnalité-ne-change-guère-mais-sa-composition-peut-changer">« La personnalité ne change guère, mais sa composition peut changer »</h2>
+<p>Cette phrase m’a longtemps interpellé.</p>
+<p>Elle va à l’encontre d’une idée très répandue :<br/>
+celle selon laquelle, pour évoluer, il faudrait devenir quelqu’un d’autre.</p>
+<hr/>
+<h2 id="on-ne-se-transforme-pas-en-se-reniant">On ne se transforme pas en se reniant</h2>
+<p>Nous avons tous une manière d’être :
+introvertie ou extravertie,<br/>
+réfléchie ou impulsive,<br/>
+prudente ou audacieuse.</p>
+<p>Ces traits constituent notre personnalité.<br/>
+Ils ne disparaissent pas du jour au lendemain, et ce n’est d’ailleurs pas souhaitable.</p>
+<p>Chercher à les effacer conduit souvent à une forme de violence intérieure :
+culpabilité, comparaison, rejet de soi.</p>
+<hr/>
+<h2 id="la-vraie-transformation-se-joue-ailleurs">La vraie transformation se joue ailleurs</h2>
+<p>Ce qui peut évoluer profondément,<br/>
+ce n’est pas tant <strong>la nature de notre personnalité</strong>,<br/>
+mais <strong>la qualité de ce qui la compose</strong>.</p>
+<p>On peut comparer cela à une rivière :</p>
+<ul>
+<li>son lit reste globalement le même,</li>
+<li>mais son eau peut être trouble ou limpide,</li>
+<li>polluée ou nourricière,</li>
+<li>pauvre ou riche en vie.</li>
+</ul>
+<p>La rivière n’a pas besoin de changer de cours pour devenir plus saine.<br/>
+Elle a besoin d’être purifiée.</p>
+<hr/>
+<h2 id="nos-défauts-ne-sont-pas-des-condamnations">Nos défauts ne sont pas des condamnations</h2>
+<p>Ce que l’on appelle “défauts” n’est souvent qu’un potentiel mal orienté.</p>
+<p>La timidité peut devenir discernement.<br/>
+L’impatience peut devenir efficacité.<br/>
+La sensibilité peut devenir profondeur.<br/>
+L’introversion peut devenir force d’analyse.</p>
+<p>Le problème n’est pas le trait lui-même,<br/>
+mais la manière dont il s’exprime.</p>
+<hr/>
+<h2 id="se-fixer-sur-ses-imperfections-empêche-davancer">Se fixer sur ses imperfections empêche d’avancer</h2>
+<p>Il n’existe pas de personnalité parfaite.<br/>
+Chacun porte en lui des zones d’ombre, des limites, des fragilités.</p>
+<p>S’y attarder excessivement ne mène pas à la transformation,<br/>
+mais à l’auto-dévalorisation.</p>
+<p>Le changement durable commence lorsque l’on cesse de se battre contre soi-même<br/>
+et que l’on choisit d’avancer avec lucidité et constance.</p>
+<hr/>
+<h2 id="le-progrès-est-discret-mais-réel">Le progrès est discret, mais réel</h2>
+<p>La transformation intérieure n’est ni spectaculaire ni immédiate.<br/>
+Elle est progressive, parfois imperceptible sur le moment.</p>
+<p>Mais à force d’efforts répétés,<br/>
+la qualité de notre vie change.</p>
+<p>Pas parce que nous sommes devenus quelqu’un d’autre,<br/>
+mais parce que <strong>nous avons enrichi le contenu de ce que nous sommes déjà</strong>.</p>
+<hr/>
+<h2 id="en-conclusion">En conclusion</h2>
+<p>On ne change pas toujours sa personnalité.<br/>
+Et ce n’est pas un échec.</p>
+<p>La véritable évolution consiste à transformer ce qui la compose :
+nos intentions, nos choix, nos efforts quotidiens.</p>
+<p>C’est là que commence un changement profond, durable, et authentique.</p>
+<hr/>
+<p><em>Si cette réflexion résonne en vous,<br/>
+n’hésitez pas à la partager ou à poursuivre la discussion.</em></p> </div>  </main> </div> <footer class="site-footer" data-astro-cid-35ed7um5> <div class="site-footer__container" data-astro-cid-35ed7um5> <nav class="site-footer__nav" aria-label="Navigation du pied de page" data-astro-cid-35ed7um5> <div class="site-footer__section" data-astro-cid-35ed7um5> <h3 class="site-footer__section-title" data-astro-cid-35ed7um5># Pages</h3> <ul class="site-footer__list" data-astro-cid-35ed7um5> <li data-astro-cid-35ed7um5> <a href="/" class="site-footer__link" data-astro-cid-35ed7um5> Accueil </a> </li><li data-astro-cid-35ed7um5> <a href="/about/" class="site-footer__link" data-astro-cid-35ed7um5> À propos </a> </li><li data-astro-cid-35ed7um5> <a href="/writing/" class="site-footer__link" data-astro-cid-35ed7um5> Écrits </a> </li><li data-astro-cid-35ed7um5> <a href="/projects/" class="site-footer__link" data-astro-cid-35ed7um5> Projets </a> </li><li data-astro-cid-35ed7um5> <a href="/contact/" class="site-footer__link" data-astro-cid-35ed7um5> Contact </a> </li> </ul> </div> </nav> <div class="site-footer__bottom" data-astro-cid-35ed7um5> <p class="site-footer__copyright" data-astro-cid-35ed7um5>
+&copy; 2026 Calix Monnet
+</p> </div> </div> </footer>  </div> </body></html>
