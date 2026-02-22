@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import PostLayout from "../layouts/Post.astro";
+import Base from "../layouts/Base.astro";
 import BackButton from "@/components/BackButton.astro";
 import { formatDate } from "@/utils/date.ts";
 import { getAllPosts } from "../utils/post";
@@ -31,7 +31,7 @@ const postByYearArray = Object.entries(postByYear)
     .sort((a, b) => b.year - a.year);
 ---
 
-<PostLayout title="Ce que je sais">
+<Base title="Ce que je sais">
     <BackButton href="/" />
 
     <section class="archive">
@@ -69,4 +69,4 @@ const postByYearArray = Object.entries(postByYear)
             ))
         }
     </section>
-</PostLayout>
+</Base>
