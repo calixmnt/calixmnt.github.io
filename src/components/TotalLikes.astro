@@ -98,15 +98,6 @@ const { label = "Total des likes" } = Astro.props;
       }
     });
 
-    const observer = new MutationObserver(() => {
-      updateTotalLikesDisplay();
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-
     document.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       if (target.closest('.like-button')) {
