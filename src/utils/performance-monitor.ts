@@ -10,7 +10,7 @@ export function measurePageLoad() {
       console.log('TCP Connection:', Math.round(perfData.connectEnd - perfData.connectStart), 'ms');
       console.log('Request Time:', Math.round(perfData.responseStart - perfData.requestStart), 'ms');
       console.log('Response Time:', Math.round(perfData.responseEnd - perfData.responseStart), 'ms');
-      console.log('DOM Processing:', Math.round(perfData.domComplete - perfData.domLoading), 'ms');
+      console.log('DOM Processing:', Math.round(perfData.domComplete - perfData.loadEventStart), 'ms');
       console.log('Load Complete:', Math.round(perfData.loadEventEnd - perfData.fetchStart), 'ms');
       console.groupEnd();
     }
