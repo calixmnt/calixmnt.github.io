@@ -1,4 +1,6 @@
 ---
+import TotalLikes from "../TotalLikes.astro";
+
 const currentYear = new Date().getFullYear();
 
 const footerLinks = [
@@ -32,6 +34,7 @@ const footerLinks = [
         &copy; {currentYear} Calix Monnet
       </p>
     </div>
+    <TotalLikes label="Articles appréciés" />
   </div>
 </footer>
 
